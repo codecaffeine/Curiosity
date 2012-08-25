@@ -124,26 +124,18 @@
 			children = (
 				C9A8B7A815E939F80023FEBC /* CAFAppDelegate.h */,
 				C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */,
-				C9A8B7AB15E939F80023FEBC /* MainStoryboard.storyboard */,
-				C9A8B7B115E939F80023FEBC /* CAFMasterViewController.h */,
-				C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */,
 				C9A8B7B415E939F80023FEBC /* CAFDetailViewController.h */,
 				C9A8B7B515E939F80023FEBC /* CAFDetailViewController.m */,
-				C9A8B7AE15E939F80023FEBC /* Curiosity.xcdatamodeld */,
-				C9A8B7A015E939F80023FEBC /* Supporting Files */,
-			);
-			path = Curiosity;
-			sourceTree = "<group>";
-		};
-		C9A8B7A015E939F80023FEBC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
+				C9A8B7B115E939F80023FEBC /* CAFMasterViewController.h */,
+				C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */,
 				C9A8B7A115E939F80023FEBC /* Curiosity-Info.plist */,
+				C9A8B7A715E939F80023FEBC /* Curiosity-Prefix.pch */,
+				C9A8B7AE15E939F80023FEBC /* Curiosity.xcdatamodeld */,
 				C9A8B7A215E939F80023FEBC /* InfoPlist.strings */,
 				C9A8B7A515E939F80023FEBC /* main.m */,
-				C9A8B7A715E939F80023FEBC /* Curiosity-Prefix.pch */,
+				C9A8B7AB15E939F80023FEBC /* MainStoryboard.storyboard */,
 			);
-			name = "Supporting Files";
+			path = Curiosity;
 			sourceTree = "<group>";
 		};
 		C9A8B7C415E939F80023FEBC /* CuriosityTests */ = {
@@ -451,6 +443,7 @@
 				C9A8B7D115E939F80023FEBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9A8B7D215E939F80023FEBC /* Build configuration list for PBXNativeTarget "CuriosityTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +452,7 @@
 				C9A8B7D415E939F80023FEBC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
