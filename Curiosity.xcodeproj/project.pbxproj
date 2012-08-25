@@ -54,7 +54,7 @@
 		C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFMasterViewController.m; sourceTree = "<group>"; };
 		C9A8B7B415E939F80023FEBC /* CAFDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAFDetailViewController.h; sourceTree = "<group>"; };
 		C9A8B7B515E939F80023FEBC /* CAFDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFDetailViewController.m; sourceTree = "<group>"; };
-		C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuriosityTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9A8B7BC15E939F80023FEBC /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9A8B7C615E939F80023FEBC /* CuriosityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CuriosityTests-Info.plist"; sourceTree = "<group>"; };
 		C9A8B7C815E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A8B79F15E939F80023FEBC /* Curiosity */,
-				C9A8B7C415E939F80023FEBC /* CuriosityTests */,
+				C9A8B7C415E939F80023FEBC /* Tests */,
 				C9A8B79615E939F80023FEBC /* Frameworks */,
 				C9A8B79415E939F80023FEBC /* Products */,
 			);
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A8B79315E939F80023FEBC /* Curiosity.app */,
-				C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */,
+				C9A8B7BC15E939F80023FEBC /* Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,14 +138,14 @@
 			path = Curiosity;
 			sourceTree = "<group>";
 		};
-		C9A8B7C415E939F80023FEBC /* CuriosityTests */ = {
+		C9A8B7C415E939F80023FEBC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */,
 				C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */,
 				C9A8B7C515E939F80023FEBC /* Supporting Files */,
 			);
-			path = CuriosityTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		C9A8B7C515E939F80023FEBC /* Supporting Files */ = {
@@ -193,7 +193,7 @@
 			);
 			name = CuriosityTests;
 			productName = CuriosityTests;
-			productReference = C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */;
+			productReference = C9A8B7BC15E939F80023FEBC /* Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -400,7 +400,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Curiosity/Curiosity-Prefix.pch";
-				INFOPLIST_FILE = "CuriosityTests/CuriosityTests-Info.plist";
+				INFOPLIST_FILE = "Tests/CuriosityTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -417,7 +417,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Curiosity/Curiosity-Prefix.pch";
-				INFOPLIST_FILE = "CuriosityTests/CuriosityTests-Info.plist";
+				INFOPLIST_FILE = "Tests/CuriosityTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
