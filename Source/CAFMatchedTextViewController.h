@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CAFMatchedTextViewController : UIViewController
-
+@property (copy, nonatomic) NSString *regexString;
+@property (copy, nonatomic) NSString *inputText;
 @end
