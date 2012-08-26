@@ -9,7 +9,7 @@
 #import "CAFMatchedTextViewController.h"
 
 @interface CAFMatchedTextViewController ()
-
+@property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
 @end
 
 @implementation CAFMatchedTextViewController
