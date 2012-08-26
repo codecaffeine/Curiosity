@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */; };
+		C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */; };
 		C99086CB15E94E0600182E2B /* buildSetting.txt in Resources */ = {isa = PBXBuildFile; fileRef = C99086CA15E94E0600182E2B /* buildSetting.txt */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFRegexInputViewController.h; sourceTree = "<group>"; };
 		C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFRegexInputViewController.m; sourceTree = "<group>"; };
+		C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewController.h; sourceTree = "<group>"; };
+		C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFMatchedTextViewController.m; sourceTree = "<group>"; };
 		C99086CA15E94E0600182E2B /* buildSetting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildSetting.txt; sourceTree = "<group>"; };
 		C9A8B79315E939F80023FEBC /* Curiosity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curiosity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B79715E939F80023FEBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -98,6 +101,8 @@
 			children = (
 				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
 				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
+				C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */,
+				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				C9A8B7B315E939F80023FEBC /* CAFMasterViewController.m in Sources */,
 				C9A8B7B615E939F80023FEBC /* CAFDetailViewController.m in Sources */,
 				C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */,
+				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
