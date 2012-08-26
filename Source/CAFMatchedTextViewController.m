@@ -8,6 +8,8 @@
 
 #import "CAFMatchedTextViewController.h"
 
+static void *CAFMatchedTextViewControllerContext = &CAFMatchedTextViewControllerContext;
+
 @interface CAFMatchedTextViewController ()
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
 @end
@@ -19,8 +21,20 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        [self addObserver:self
+               forKeyPath:@"regexString"
+                  options:NSKeyValueObservingOptionNew
+                  context:CAFMatchedTextViewControllerContext];
     }
     return self;
+}
+
+
+- (void)dealloc
+{
+    [self removeObserver:self
+              forKeyPath:@"regexString"
+                 context:CAFMatchedTextViewControllerContext];
 }
 
 - (void)viewDidLoad
@@ -33,40 +47,74 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+    [self updateRegexMatch];
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - KeyValueObserving
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    if (context == CAFMatchedTextViewControllerContext) {
+        [self updateRegexMatch];
+    } else {
+        [super observeValueForKeyPath:keyPath
+                             ofObject:object
+                               change:change
+                              context:context];
+    }
+}
+
+
+#pragma mark - Private Instance Methods
+- (void)updateRegexMatch
+{
     NSError *regexError;
-    NSString *regexPattern = @"m.tt";
-    NSLog(@"regexPattern: %@", regexPattern);
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regexPattern
+    NSLog(@"self.regexString: %@", self.regexString);
+    if (!self.regexString) {
+        return;
+    }
+    
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:self.regexString
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&regexError];
     if (!regex) {
-        NSLog(@"regexError: %@", regexError);
+        if (regexError) {
+            NSLog(@"regexError: %@", regexError);
+        }
     }
     
-    NSString *matchingString = @"and the little mutt asked \"What is a matter?\"";
-    NSLog(@"matchString: %@", matchingString);
-    NSRange matchingStringRange = NSMakeRange(0, [matchingString length]);
+    NSLog(@"self.inputText: %@", self.inputText);
+    NSRange inputTextRange = NSMakeRange(0, [self.inputText length]);
     
-    NSUInteger matchCount = [regex numberOfMatchesInString:matchingString
+    NSUInteger matchCount = [regex numberOfMatchesInString:self.inputText
                                                    options:0
-                                                     range:matchingStringRange];
+                                                     range:inputTextRange];
     NSLog(@"matchCount: %d", matchCount);
     
     NSRange noRange = NSMakeRange(NSNotFound, 0);
     
-    NSRange firstMatchRange = [regex rangeOfFirstMatchInString:matchingString
+    NSRange firstMatchRange = [regex rangeOfFirstMatchInString:self.inputText
                                                        options:0
-                                                         range:matchingStringRange];
+                                                         range:inputTextRange];
     if (NSEqualRanges(firstMatchRange, noRange)) {
         NSLog(@"No match found");
     } else {
         NSLog(@"Range of first match: %@", NSStringFromRange(firstMatchRange));
     }
     
-    NSArray *matches = [regex matchesInString:matchingString
+    NSArray *matches = [regex matchesInString:self.inputText
                                       options:0
-                                        range:matchingStringRange];
+                                        range:inputTextRange];
     for (NSTextCheckingResult *result in matches) {
         NSLog(@"result: %@", result);
         NSLog(@"result.range: %@", NSStringFromRange(result.range));
@@ -101,10 +149,10 @@
         }
     }
     
-    NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:matchingString];
-    [regex enumerateMatchesInString:matchingString
+    NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:self.inputText];
+    [regex enumerateMatchesInString:self.inputText
                             options:0
-                              range:matchingStringRange
+                              range:inputTextRange
                          usingBlock:^(NSTextCheckingResult *result,
                                       NSMatchingFlags flags,
                                       BOOL *stop) {
@@ -113,13 +161,6 @@
                                                    range:result.range];
                          }];
     self.matchedTextView.attributedText = displayString;
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
