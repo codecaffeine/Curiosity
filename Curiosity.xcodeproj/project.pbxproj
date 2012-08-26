@@ -19,8 +19,6 @@
 		C9A8B7AA15E939F80023FEBC /* CAFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */; };
 		C9A8B7AD15E939F80023FEBC /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9A8B7AB15E939F80023FEBC /* MainStoryboard.storyboard */; };
 		C9A8B7B015E939F80023FEBC /* Curiosity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7AE15E939F80023FEBC /* Curiosity.xcdatamodeld */; };
-		C9A8B7B315E939F80023FEBC /* CAFMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */; };
-		C9A8B7B615E939F80023FEBC /* CAFDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7B515E939F80023FEBC /* CAFDetailViewController.m */; };
 		C9A8B7BE15E939F80023FEBC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */; };
 		C9A8B7BF15E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B7C015E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -58,10 +56,6 @@
 		C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFAppDelegate.m; sourceTree = "<group>"; };
 		C9A8B7AC15E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C9A8B7AF15E939F80023FEBC /* Curiosity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curiosity.xcdatamodel; sourceTree = "<group>"; };
-		C9A8B7B115E939F80023FEBC /* CAFMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAFMasterViewController.h; sourceTree = "<group>"; };
-		C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFMasterViewController.m; sourceTree = "<group>"; };
-		C9A8B7B415E939F80023FEBC /* CAFDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CAFDetailViewController.h; sourceTree = "<group>"; };
-		C9A8B7B515E939F80023FEBC /* CAFDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFDetailViewController.m; sourceTree = "<group>"; };
 		C9A8B7BC15E939F80023FEBC /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.octest; path = CuriosityTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9A8B7C615E939F80023FEBC /* CuriosityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CuriosityTests-Info.plist"; sourceTree = "<group>"; };
@@ -153,10 +147,6 @@
 			children = (
 				C9A8B7A815E939F80023FEBC /* CAFAppDelegate.h */,
 				C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */,
-				C9A8B7B415E939F80023FEBC /* CAFDetailViewController.h */,
-				C9A8B7B515E939F80023FEBC /* CAFDetailViewController.m */,
-				C9A8B7B115E939F80023FEBC /* CAFMasterViewController.h */,
-				C9A8B7B215E939F80023FEBC /* CAFMasterViewController.m */,
 				C9A8B7A115E939F80023FEBC /* Curiosity-Info.plist */,
 				C9A8B7A715E939F80023FEBC /* Curiosity-Prefix.pch */,
 				C9A8B7AE15E939F80023FEBC /* Curiosity.xcdatamodeld */,
@@ -298,8 +288,6 @@
 				C9A8B7A615E939F80023FEBC /* main.m in Sources */,
 				C9A8B7AA15E939F80023FEBC /* CAFAppDelegate.m in Sources */,
 				C9A8B7B015E939F80023FEBC /* Curiosity.xcdatamodeld in Sources */,
-				C9A8B7B315E939F80023FEBC /* CAFMasterViewController.m in Sources */,
-				C9A8B7B615E939F80023FEBC /* CAFDetailViewController.m in Sources */,
 				C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */,
 				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 			);
