@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CAFRegexInputViewController : UIViewController
+@protocol CAFRegexInputViewControllerDelegate;
 
+@interface CAFRegexInputViewController : UIViewController
+@property (weak, nonatomic) id<CAFRegexInputViewControllerDelegate> delegate;
+@end
+
+@protocol CAFRegexInputViewControllerDelegate <NSObject>
+- (void)regexInputViewController:(CAFRegexInputViewController *)regexInputViewController
+              regexTextViewDidChange:(UITextView *)regexTextView;
 @end

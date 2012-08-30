@@ -9,32 +9,27 @@
 #import "CAFRegexInputViewController.h"
 
 
-@interface CAFRegexInputViewController ()
+@interface CAFRegexInputViewController () <UITextViewDelegate>
 @property (strong, nonatomic) IBOutlet UITextView *regexTextView;
 @end
 
 
 @implementation CAFRegexInputViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewDidAppear:(BOOL)animated
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    [super viewDidAppear:animated];
+    [self.regexTextView becomeFirstResponder];
+    [self.delegate regexInputViewController:self
+                     regexTextViewDidChange:self.regexTextView];
 }
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
 
-- (void)didReceiveMemoryWarning
+#pragma mark - UITextViewDelegate
+- (void)textViewDidChange:(UITextView *)textView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self.delegate regexInputViewController:self
+                     regexTextViewDidChange:textView];
 }
 
 @end
