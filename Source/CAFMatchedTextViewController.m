@@ -49,9 +49,30 @@
 }
 
 
-- (IBAction)urlFieldDidEndOnExit:(UITextField *)sender {
-    NSLog(@"urlFieldDidEndOnExit: %@", sender.text);
+- (IBAction)urlFieldDidEndOnExit:(UITextField *)urlField
+{
+    NSLog(@"urlFieldDidEndOnExit: %@", urlField);
+    NSURL *url = [NSURL URLWithString:urlField.text];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *error) {
+                               NSLog(@"response: %@", response);
+                               NSLog(@"response.expectedContentLength: %lld",
+                                     response.expectedContentLength);
+                               NSLog(@"response.suggestedFilename: %@",
+                                     response.suggestedFilename);
+                               NSLog(@"response.MIMEType: %@",
+                                     response.MIMEType);
+                               NSLog(@"response.textEncodingName: %@",
+                                     response.textEncodingName);
+//                               NSLog(@"data: %@", data);
+                               NSLog(@"error: %@", error);
+                           }];
 }
+
 
 #pragma mark - Private Instance Methods
 - (void)updateRegexMatch
