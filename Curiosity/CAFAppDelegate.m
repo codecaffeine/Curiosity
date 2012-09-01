@@ -53,7 +53,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                 UINavigationController *navController = (UINavigationController *)rightViewController;
                 if ([navController.visibleViewController isKindOfClass:[CAFMatchedTextViewController class]]) {
                     _matchedTextViewController = (CAFMatchedTextViewController *)navController.visibleViewController;
-                    _matchedTextViewController.inputText = @"My name is Matt. I'm not mutt. That's all that matters";
                 } else {
                     NSLog(@"visibleViewController is not CAFMatchedTextViewController: %@",
                           NSStringFromClass([navController.visibleViewController class]));
