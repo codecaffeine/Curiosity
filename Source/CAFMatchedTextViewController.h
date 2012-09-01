@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol CAFMatchedTextViewControllerDelegate;
+
 @interface CAFMatchedTextViewController : UIViewController
 @property (copy, nonatomic) NSString *regexString;
 @property (copy, nonatomic) NSString *inputText;
+@property (weak, nonatomic) id<CAFMatchedTextViewControllerDelegate> delegate;
+@end
+
+
+@protocol CAFMatchedTextViewControllerDelegate <NSObject>
+- (void)matchedTextViewController:(CAFMatchedTextViewController *)matchedTextViewController
+                    shouldLoadURL:(NSURL *)url;
 @end
