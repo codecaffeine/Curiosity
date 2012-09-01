@@ -85,24 +85,22 @@
                                                             error:&regexError];
     }
     
-    if (!regex &&regexError ) {
-        NSLog(@"regexError: %@", regexError);
+    if (regex && self.inputText) {
+        NSRange inputTextRange = NSMakeRange(0, [self.inputText length]);
+        NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:self.inputText];
+        [regex enumerateMatchesInString:self.inputText
+                                options:0
+                                  range:inputTextRange
+                             usingBlock:^(NSTextCheckingResult *result,
+                                          NSMatchingFlags flags,
+                                          BOOL *stop) {
+                                 [displayString addAttribute:NSBackgroundColorAttributeName
+                                                       value:[UIColor redColor]
+                                                       range:result.range];
+                             }];
+        self.matchedTextView.text = nil;
+        self.matchedTextView.attributedText = displayString;
     }
-    
-    NSRange inputTextRange = NSMakeRange(0, [self.inputText length]);
-    NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:self.inputText];
-    [regex enumerateMatchesInString:self.inputText
-                            options:0
-                              range:inputTextRange
-                         usingBlock:^(NSTextCheckingResult *result,
-                                      NSMatchingFlags flags,
-                                      BOOL *stop) {
-                             [displayString addAttribute:NSBackgroundColorAttributeName
-                                                   value:[UIColor redColor]
-                                                   range:result.range];
-                         }];
-    self.matchedTextView.text = nil;
-    self.matchedTextView.attributedText = displayString;
 }
 
 @end
