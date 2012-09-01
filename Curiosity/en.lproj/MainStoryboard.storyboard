@@ -109,7 +109,20 @@
                         </constraints>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KBg-1u-Psf"/>
+                    <navigationItem key="navigationItem" id="KBg-1u-Psf">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Jvs-8l-1VC">
+                            <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Load URL…" minimumFontSize="17" clearButtonMode="whileEditing" text="" id="D7k-md-HxM">
+                                <rect key="frame" x="7" y="7" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <connections>
+                                    <action selector="urlFieldDidEndOnExit:" destination="0W6-Y4-LDa" eventType="editingDidEndOnExit" id="5CE-AH-4Lv"/>
+                                </connections>
+                            </textField>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="matchedTextView" destination="aeF-nk-fFD" id="YDK-mR-qHE"/>
                     </connections>
@@ -123,6 +136,7 @@
         <class className="CAFMatchedTextViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CAFMatchedTextViewController.h"/>
             <relationships>
+                <relationship kind="action" name="urlFieldDidEndOnExit:" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="matchedTextView" candidateClass="UITextView"/>
             </relationships>
         </class>

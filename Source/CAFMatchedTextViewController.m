@@ -10,6 +10,7 @@
 
 @interface CAFMatchedTextViewController ()
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
+- (IBAction)urlFieldDidEndOnExit:(UITextField *)sender;
 @end
 
 @implementation CAFMatchedTextViewController
@@ -47,6 +48,10 @@
     _inputText = [inputText copy];
 }
 
+
+- (IBAction)urlFieldDidEndOnExit:(UITextField *)sender {
+    NSLog(@"urlFieldDidEndOnExit: %@", sender.text);
+}
 
 #pragma mark - Private Instance Methods
 - (void)updateRegexMatch
