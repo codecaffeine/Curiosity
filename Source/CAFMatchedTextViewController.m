@@ -46,6 +46,7 @@
 - (void)setInputText:(NSString *)inputText
 {
     _inputText = [inputText copy];
+    [self updateRegexMatch];
 }
 
 
@@ -59,17 +60,16 @@
                            completionHandler:^(NSURLResponse *response,
                                                NSData *data,
                                                NSError *error) {
-                               NSLog(@"response: %@", response);
-                               NSLog(@"response.expectedContentLength: %lld",
-                                     response.expectedContentLength);
-                               NSLog(@"response.suggestedFilename: %@",
-                                     response.suggestedFilename);
-                               NSLog(@"response.MIMEType: %@",
-                                     response.MIMEType);
-                               NSLog(@"response.textEncodingName: %@",
-                                     response.textEncodingName);
-//                               NSLog(@"data: %@", data);
-                               NSLog(@"error: %@", error);
+                               NSLog(@"response.textEncodingName: %@", response.textEncodingName);
+                               NSString *textEncodingName = response.textEncodingName;
+                               if (textEncodingName) {
+                                   CFStringEncoding stringEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);
+                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
+                                   NSString *responseString = [[NSString alloc] initWithData:data
+                                                                                    encoding:encoding];
+                                   self.inputText = responseString;
+                                   self.title = response.suggestedFilename;
+                               }
                            }];
 }
 
