@@ -85,7 +85,7 @@
                                                             error:&regexError];
     }
     
-    if (regex && self.inputText) {
+    if (self.inputText) {
         NSRange inputTextRange = NSMakeRange(0, [self.inputText length]);
         NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:self.inputText];
         [regex enumerateMatchesInString:self.inputText
