@@ -7,6 +7,7 @@
 //
 
 #import "CAFMatchedTextViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface CAFMatchedTextViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *regexTextField;
@@ -22,22 +23,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    _awesomeView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
-    _awesomeView.backgroundColor = [UIColor purpleColor];
-    _awesomeView.hidden = YES;
-    self.regexTextField.inputAccessoryView = _awesomeView;
-}
-
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    NSLog(@"self.view.bounds: %@", NSStringFromCGRect(self.view.bounds));
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *notification) {
+                                                      UIGraphicsBeginImageContext(self.regexTextBar.frame.size);
+                                                      [[self.regexTextBar layer] renderInContext:UIGraphicsGetCurrentContext()];
+                                                      UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+                                                      UIGraphicsEndImageContext();
+                                                      
+                                                      for (UIView *subviews in _awesomeView.subviews) {
+                                                          [subviews removeFromSuperview];
+                                                      }
+                                                      
+                                                      UIImageView *imageView = [[UIImageView alloc] initWithImage:screenshot];
+                                                      [_awesomeView addSubview:imageView];
+                                                      imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                                                      CGRect imageFrame = imageView.frame;
+                                                      imageFrame.origin.x = _awesomeView.bounds.size.width - imageFrame.size.width;
+                                                      imageView.frame = imageFrame;
+                                                      
                                                       self.regexTextBar.hidden = YES;
                                                       _awesomeView.hidden = NO;
                                                   }];
@@ -54,7 +59,6 @@
                                                                                                     fromView:nil];
                                                       CGRect regexTextBarFrame = self.regexTextBar.frame;
                                                       CGFloat maxY = self.view.bounds.size.height - regexTextBarFrame.size.height;
-                                                      NSLog(@"maxY: %f", maxY);
                                                       regexTextBarFrame.origin.y = MIN(endKeyboardRectForView.origin.y, maxY);
                                                       self.regexTextBar.frame = regexTextBarFrame;
                                                   }];
@@ -64,6 +68,11 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    // Do any additional setup after loading the view.
+    _awesomeView = [[UIView alloc] initWithFrame:self.regexTextBar.frame];
+    _awesomeView.backgroundColor = [UIColor clearColor];
+    _awesomeView.hidden = YES;
+    self.regexTextField.inputAccessoryView = _awesomeView;
     [self updateRegexMatch];
 }
 

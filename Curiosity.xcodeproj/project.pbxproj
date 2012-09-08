@@ -25,6 +25,7 @@
 		C9A8B7C115E939F80023FEBC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79D15E939F80023FEBC /* CoreData.framework */; };
 		C9A8B7C915E939F80023FEBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9A8B7C715E939F80023FEBC /* InfoPlist.strings */; };
 		C9A8B7CC15E939F80023FEBC /* CuriosityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */; };
+		C9E7EA7415FBFD8600091343 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E7EA7315FBFD8600091343 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		C9A8B7C815E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuriosityTests.h; sourceTree = "<group>"; };
 		C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CuriosityTests.m; sourceTree = "<group>"; };
+		C9E7EA7315FBFD8600091343 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */,
 				C9A8B79C15E939F80023FEBC /* CoreGraphics.framework in Frameworks */,
 				C9A8B79E15E939F80023FEBC /* CoreData.framework in Frameworks */,
+				C9E7EA7415FBFD8600091343 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +140,7 @@
 				C9A8B79915E939F80023FEBC /* Foundation.framework */,
 				C9A8B79B15E939F80023FEBC /* CoreGraphics.framework */,
 				C9A8B79D15E939F80023FEBC /* CoreData.framework */,
+				C9E7EA7315FBFD8600091343 /* QuartzCore.framework */,
 				C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
