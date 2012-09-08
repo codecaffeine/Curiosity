@@ -8,17 +8,56 @@
 
 #import "CAFMatchedTextViewController.h"
 
-@interface CAFMatchedTextViewController ()
+@interface CAFMatchedTextViewController () <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *regexTextField;
+@property (strong, nonatomic) IBOutlet UIView *regexTextBar;
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
 - (IBAction)urlFieldDidEndOnExit:(UITextField *)sender;
 @end
 
-@implementation CAFMatchedTextViewController
+@implementation CAFMatchedTextViewController {
+    UIView *_awesomeView;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _awesomeView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 44.0)];
+    _awesomeView.backgroundColor = [UIColor purpleColor];
+    _awesomeView.hidden = YES;
+    self.regexTextField.inputAccessoryView = _awesomeView;
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    NSLog(@"self.view.bounds: %@", NSStringFromCGRect(self.view.bounds));
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *notification) {
+                                                      self.regexTextBar.hidden = YES;
+                                                      _awesomeView.hidden = NO;
+                                                  }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidChangeFrameNotification
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *notification) {
+                                                      _awesomeView.hidden = YES;
+                                                      self.regexTextBar.hidden = NO;
+                                                      NSValue *endKeyboardFrame = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+                                                      CGRect endKeyboardRect = [endKeyboardFrame CGRectValue];
+                                                      CGRect endKeyboardRectForView = [self.view convertRect:endKeyboardRect
+                                                                                                    fromView:nil];
+                                                      CGRect regexTextBarFrame = self.regexTextBar.frame;
+                                                      CGFloat maxY = self.view.bounds.size.height - regexTextBarFrame.size.height;
+                                                      NSLog(@"maxY: %f", maxY);
+                                                      regexTextBarFrame.origin.y = MIN(endKeyboardRectForView.origin.y, maxY);
+                                                      self.regexTextBar.frame = regexTextBarFrame;
+                                                  }];
 }
 
 
