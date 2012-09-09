@@ -28,47 +28,43 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="6rm-EJ-gAV" kind="relationship" relationship="rootViewController" id="oL5-Os-L9E"/>
+                        <segue destination="oQs-g6-PBY" kind="relationship" relationship="rootViewController" id="75a-FO-B7O"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vrh-wX-r90" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="526" y="-630"/>
         </scene>
-        <!--Regex Input View Controller-->
-        <scene sceneID="WAq-Gk-Hsu">
+        <!--Table View Controller-->
+        <scene sceneID="jB0-eM-Rwq">
             <objects>
-                <viewController id="6rm-EJ-gAV" customClass="CAFRegexInputViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Wra-2J-fuA">
+                <tableViewController id="oQs-g6-PBY" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bC2-eh-DqY">
                         <rect key="frame" x="0.0" y="64" width="320" height="704"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textView translatesAutoresizingMaskIntoConstraints="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="" id="aHC-8W-b9u">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <connections>
-                                    <outlet property="delegate" destination="6rm-EJ-gAV" id="wu4-VI-FYl"/>
-                                </connections>
-                            </textView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="aHC-8W-b9u" firstAttribute="top" secondItem="Wra-2J-fuA" secondAttribute="top" type="default" id="0wx-mD-9uT"/>
-                            <constraint firstItem="aHC-8W-b9u" firstAttribute="trailing" secondItem="Wra-2J-fuA" secondAttribute="trailing" type="default" id="4aP-n1-8Ij"/>
-                            <constraint firstItem="aHC-8W-b9u" firstAttribute="bottom" secondItem="Wra-2J-fuA" secondAttribute="bottom" type="default" id="OVj-W5-WSa"/>
-                            <constraint firstItem="aHC-8W-b9u" firstAttribute="leading" secondItem="Wra-2J-fuA" secondAttribute="leading" type="default" id="dwM-m7-PLl"/>
-                        </constraints>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="gv8-At-jcx"/>
-                    <connections>
-                        <outlet property="regexTextView" destination="aHC-8W-b9u" id="12h-0G-UMm"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hFM-DX-qF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fNL-x2-9mK">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oQs-g6-PBY" id="b0K-TN-pOk"/>
+                            <outlet property="delegate" destination="oQs-g6-PBY" id="3IB-xo-WpG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="rAP-Mm-KGv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xMY-8p-Hy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="966" y="-630"/>
+            <point key="canvasLocation" x="1015" y="-630"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="50">
@@ -104,6 +100,9 @@
                                         <textInputTraits key="textInputTraits"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="0W6-Y4-LDa" id="r25-Oe-V1k"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -144,7 +143,8 @@
                     <connections>
                         <outlet property="matchedTextView" destination="aeF-nk-fFD" id="YDK-mR-qHE"/>
                         <outlet property="regexTextBar" destination="wlt-jO-H0G" id="wG6-Br-mES"/>
-                        <outlet property="regexTextField" destination="yzh-79-R9L" id="wOz-Rf-5et"/>
+                        <outlet property="regexTextField" destination="yzh-79-R9L" id="H53-rU-Iv8"/>
+                        <outlet property="urlField" destination="D7k-md-HxM" id="3mD-rR-ECN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3c8-D9-N44" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,12 +160,7 @@
                 <relationship kind="outlet" name="matchedTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="regexTextBar" candidateClass="UIView"/>
                 <relationship kind="outlet" name="regexTextField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="CAFRegexInputViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CAFRegexInputViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="regexTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="urlField" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

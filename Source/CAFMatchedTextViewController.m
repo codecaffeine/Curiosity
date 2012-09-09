@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface CAFMatchedTextViewController () <UITextFieldDelegate>
+@property (strong, nonatomic) IBOutlet UITextField *urlField;
 @property (strong, nonatomic) IBOutlet UITextField *regexTextField;
 @property (strong, nonatomic) IBOutlet UIView *regexTextBar;
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
@@ -17,7 +18,7 @@
 @end
 
 @implementation CAFMatchedTextViewController {
-    UIView *_awesomeView;
+    UIView *_inputAccessoryPlaceholderView;
 }
 
 - (void)viewDidLoad
@@ -32,26 +33,29 @@
                                                       UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
                                                       UIGraphicsEndImageContext();
                                                       
-                                                      for (UIView *subviews in _awesomeView.subviews) {
-                                                          [subviews removeFromSuperview];
+                                                      for (UIView *subviews in _inputAccessoryPlaceholderView.subviews) {
+                                                          if ([subviews isKindOfClass:[UIImageView class]]) {
+                                                              [subviews removeFromSuperview];
+                                                              break;
+                                                          }
                                                       }
                                                       
                                                       UIImageView *imageView = [[UIImageView alloc] initWithImage:screenshot];
-                                                      [_awesomeView addSubview:imageView];
+                                                      [_inputAccessoryPlaceholderView addSubview:imageView];
                                                       imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
                                                       CGRect imageFrame = imageView.frame;
-                                                      imageFrame.origin.x = _awesomeView.bounds.size.width - imageFrame.size.width;
+                                                      imageFrame.origin.x = _inputAccessoryPlaceholderView.bounds.size.width - imageFrame.size.width;
                                                       imageView.frame = imageFrame;
                                                       
                                                       self.regexTextBar.hidden = YES;
-                                                      _awesomeView.hidden = NO;
+                                                      _inputAccessoryPlaceholderView.hidden = NO;
                                                   }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidChangeFrameNotification
                                                       object:nil
                                                        queue:[NSOperationQueue mainQueue]
                                                   usingBlock:^(NSNotification *notification) {
-                                                      _awesomeView.hidden = YES;
+                                                      _inputAccessoryPlaceholderView.hidden = YES;
                                                       self.regexTextBar.hidden = NO;
                                                       NSValue *endKeyboardFrame = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
                                                       CGRect endKeyboardRect = [endKeyboardFrame CGRectValue];
@@ -68,11 +72,22 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    // Do any additional setup after loading the view.
-    _awesomeView = [[UIView alloc] initWithFrame:self.regexTextBar.frame];
-    _awesomeView.backgroundColor = [UIColor clearColor];
-    _awesomeView.hidden = YES;
-    self.regexTextField.inputAccessoryView = _awesomeView;
+    if (!_inputAccessoryPlaceholderView) {
+        _inputAccessoryPlaceholderView = [[UIView alloc] initWithFrame:self.regexTextBar.frame];
+        _inputAccessoryPlaceholderView.backgroundColor = [UIColor clearColor];
+        _inputAccessoryPlaceholderView.hidden = YES;
+        
+        CGRect bottomBarFrame = _inputAccessoryPlaceholderView.bounds;
+        bottomBarFrame.size.height = 1.0;
+        bottomBarFrame.origin.y = _inputAccessoryPlaceholderView.bounds.size.height - bottomBarFrame.size.height;
+        UIView *bottomBlack = [[UIView alloc] initWithFrame:bottomBarFrame];
+        bottomBlack.autoresizingMask = UIViewAutoresizingFlexibleTopMargin;
+        bottomBlack.backgroundColor = [UIColor blackColor];
+        [_inputAccessoryPlaceholderView addSubview:bottomBlack];
+    }
+    self.regexTextField.inputAccessoryView = _inputAccessoryPlaceholderView;
+    self.urlField.inputAccessoryView = _inputAccessoryPlaceholderView;
+    
     [self updateRegexMatch];
 }
 
@@ -152,6 +167,14 @@
         self.matchedTextView.text = nil;
         self.matchedTextView.attributedText = displayString;
     }
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    self.regexString = [textField.text stringByReplacingCharactersInRange:range
+                                                               withString:string];
+    return YES;
 }
 
 @end
