@@ -24,48 +24,50 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardWillChangeFrameNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *notification) {
-                                                      UIGraphicsBeginImageContext(self.regexTextBar.frame.size);
-                                                      [[self.regexTextBar layer] renderInContext:UIGraphicsGetCurrentContext()];
-                                                      UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
-                                                      UIGraphicsEndImageContext();
-                                                      
-                                                      for (UIView *subviews in _inputAccessoryPlaceholderView.subviews) {
-                                                          if ([subviews isKindOfClass:[UIImageView class]]) {
-                                                              [subviews removeFromSuperview];
-                                                              break;
-                                                          }
-                                                      }
-                                                      
-                                                      UIImageView *imageView = [[UIImageView alloc] initWithImage:screenshot];
-                                                      [_inputAccessoryPlaceholderView addSubview:imageView];
-                                                      imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
-                                                      CGRect imageFrame = imageView.frame;
-                                                      imageFrame.origin.x = _inputAccessoryPlaceholderView.bounds.size.width - imageFrame.size.width;
-                                                      imageView.frame = imageFrame;
-                                                      
-                                                      self.regexTextBar.hidden = YES;
-                                                      _inputAccessoryPlaceholderView.hidden = NO;
-                                                  }];
+    NSNotificationCenter *defaultNotificationCenter = [NSNotificationCenter defaultCenter];
+    [defaultNotificationCenter addObserverForName:UIKeyboardWillChangeFrameNotification
+                                           object:nil
+                                            queue:[NSOperationQueue mainQueue]
+                                       usingBlock:^(NSNotification *notification) {
+                                           // Save screenshot of regexField
+                                           UIGraphicsBeginImageContext(self.regexTextBar.frame.size);
+                                           [[self.regexTextBar layer] renderInContext:UIGraphicsGetCurrentContext()];
+                                           UIImage *screenshot = UIGraphicsGetImageFromCurrentImageContext();
+                                           UIGraphicsEndImageContext();
+                                           
+                                           for (UIView *subviews in _inputAccessoryPlaceholderView.subviews) {
+                                               if ([subviews isKindOfClass:[UIImageView class]]) {
+                                                   [subviews removeFromSuperview];
+                                                   break;
+                                               }
+                                           }
+                                           
+                                           UIImageView *imageView = [[UIImageView alloc] initWithImage:screenshot];
+                                           [_inputAccessoryPlaceholderView addSubview:imageView];
+                                           imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
+                                           CGRect imageFrame = imageView.frame;
+                                           imageFrame.origin.x = _inputAccessoryPlaceholderView.bounds.size.width - imageFrame.size.width;
+                                           imageView.frame = imageFrame;
+                                           
+                                           self.regexTextBar.hidden = YES;
+                                           _inputAccessoryPlaceholderView.hidden = NO;
+                                       }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIKeyboardDidChangeFrameNotification
-                                                      object:nil
-                                                       queue:[NSOperationQueue mainQueue]
-                                                  usingBlock:^(NSNotification *notification) {
-                                                      _inputAccessoryPlaceholderView.hidden = YES;
-                                                      self.regexTextBar.hidden = NO;
-                                                      NSValue *endKeyboardFrame = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
-                                                      CGRect endKeyboardRect = [endKeyboardFrame CGRectValue];
-                                                      CGRect endKeyboardRectForView = [self.view convertRect:endKeyboardRect
-                                                                                                    fromView:nil];
-                                                      CGRect regexTextBarFrame = self.regexTextBar.frame;
-                                                      CGFloat maxY = self.view.bounds.size.height - regexTextBarFrame.size.height;
-                                                      regexTextBarFrame.origin.y = MIN(endKeyboardRectForView.origin.y, maxY);
-                                                      self.regexTextBar.frame = regexTextBarFrame;
-                                                  }];
+    [defaultNotificationCenter addObserverForName:UIKeyboardDidChangeFrameNotification
+                                           object:nil
+                                            queue:[NSOperationQueue mainQueue]
+                                       usingBlock:^(NSNotification *notification) {
+                                           _inputAccessoryPlaceholderView.hidden = YES;
+                                           self.regexTextBar.hidden = NO;
+                                           NSValue *endKeyboardFrame = [notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+                                           CGRect endKeyboardRect = [endKeyboardFrame CGRectValue];
+                                           CGRect endKeyboardRectForView = [self.view convertRect:endKeyboardRect
+                                                                                         fromView:nil];
+                                           CGRect regexTextBarFrame = self.regexTextBar.frame;
+                                           CGFloat maxY = self.view.bounds.size.height - regexTextBarFrame.size.height;
+                                           regexTextBarFrame.origin.y = MIN(endKeyboardRectForView.origin.y, maxY);
+                                           self.regexTextBar.frame = regexTextBarFrame;
+                                      }];
 }
 
 
