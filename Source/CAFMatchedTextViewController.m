@@ -117,7 +117,6 @@
 
 - (IBAction)urlFieldDidEndOnExit:(UITextField *)urlField
 {
-    NSLog(@"urlFieldDidEndOnExit: %@", urlField);
     NSURL *url = [NSURL URLWithString:urlField.text];
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:urlRequest
@@ -125,7 +124,6 @@
                            completionHandler:^(NSURLResponse *response,
                                                NSData *data,
                                                NSError *error) {
-                               NSLog(@"response.textEncodingName: %@", response.textEncodingName);
                                NSString *textEncodingName = response.textEncodingName;
                                if (textEncodingName) {
                                    CFStringEncoding stringEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);
