@@ -7,15 +7,9 @@
 //
 
 #import "CAFAppDelegate.h"
-#import "CAFRegexInputViewController.h"
 #import "CAFMatchedTextViewController.h"
 
-@interface CAFAppDelegate () <CAFRegexInputViewControllerDelegate>
-@end
-
-
 @implementation CAFAppDelegate {
-    CAFRegexInputViewController *_regexInputViewController;
     CAFMatchedTextViewController *_matchedTextViewController;
 }
 
@@ -26,28 +20,9 @@
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    NSLog(@"self.window.rootViewController: %@",
-          self.window.rootViewController);
-    
     if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         if ([splitViewController.viewControllers count] == 2) {
-            UIViewController *leftViewController = [splitViewController.viewControllers objectAtIndex:0];
-            if ([leftViewController isKindOfClass:[UINavigationController class]]) {
-                UINavigationController *navController = (UINavigationController *)leftViewController;
-                if ([navController.visibleViewController isKindOfClass:[CAFRegexInputViewController class]]) {
-                    _regexInputViewController = (CAFRegexInputViewController *)navController.visibleViewController;
-                    _regexInputViewController.delegate = self;
-                } else {
-                    NSLog(@"visibleViewController is not CAFRegexInputViewController: %@",
-                          NSStringFromClass([navController.visibleViewController class]));
-                }
-            } else {
-                NSLog(@"leftViewController not a UINavigatonController: %@",
-                      NSStringFromClass([leftViewController class]));
-            }
-            
             UIViewController *rightViewController = [splitViewController.viewControllers objectAtIndex:1];
             if ([rightViewController isKindOfClass:[UINavigationController class]]) {
                 UINavigationController *navController = (UINavigationController *)rightViewController;
@@ -58,8 +33,8 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
                           NSStringFromClass([navController.visibleViewController class]));
                 }
             } else {
-                NSLog(@"leftViewController not a UINavigatonController: %@",
-                      NSStringFromClass([leftViewController class]));
+                NSLog(@"rightViewController not a UINavigatonController: %@",
+                      NSStringFromClass([rightViewController class]));
             }
         } else {
             NSLog(@"SplitViewController doesn't have 2 viewControllers: %@",
@@ -224,14 +199,6 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     }    
     
     return _persistentStoreCoordinator;
-}
-
-
-#pragma mark - CAFRegexInputViewControllerDelegate
-- (void)regexInputViewController:(CAFRegexInputViewController *)regexInputViewController
-          regexTextViewDidChange:(UITextView *)regexTextView
-{
-    _matchedTextViewController.regexString = regexTextView.text;
 }
 
 
