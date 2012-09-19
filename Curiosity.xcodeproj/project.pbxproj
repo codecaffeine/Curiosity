@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */; };
 		C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */; };
+		C9452A3D16094F2600D8FF98 /* AppIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3B16094F2600D8FF98 /* AppIcon144.png */; };
+		C9452A3E16094F2600D8FF98 /* AppIcon72.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3C16094F2600D8FF98 /* AppIcon72.png */; };
 		C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */; };
 		C99086CB15E94E0600182E2B /* buildSetting.txt in Resources */ = {isa = PBXBuildFile; fileRef = C99086CA15E94E0600182E2B /* buildSetting.txt */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 		C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFRegexInputViewController.m; sourceTree = "<group>"; };
 		C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewController.h; sourceTree = "<group>"; };
 		C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFMatchedTextViewController.m; sourceTree = "<group>"; };
+		C9452A3B16094F2600D8FF98 /* AppIcon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon144.png; sourceTree = "<group>"; };
+		C9452A3C16094F2600D8FF98 /* AppIcon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon72.png; sourceTree = "<group>"; };
 		C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFInputAccessoryPlaceholder.h; sourceTree = "<group>"; };
 		C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFInputAccessoryPlaceholder.m; sourceTree = "<group>"; };
 		C99086CA15E94E0600182E2B /* buildSetting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildSetting.txt; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		C9A8B79F15E939F80023FEBC /* Curiosity */ = {
 			isa = PBXGroup;
 			children = (
+				C9452A3B16094F2600D8FF98 /* AppIcon144.png */,
+				C9452A3C16094F2600D8FF98 /* AppIcon72.png */,
 				C9A8B7A815E939F80023FEBC /* CAFAppDelegate.h */,
 				C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */,
 				C9A8B7A115E939F80023FEBC /* Curiosity-Info.plist */,
@@ -260,6 +266,8 @@
 				C9A8B7A415E939F80023FEBC /* InfoPlist.strings in Resources */,
 				C9A8B7AD15E939F80023FEBC /* MainStoryboard.storyboard in Resources */,
 				C99086CB15E94E0600182E2B /* buildSetting.txt in Resources */,
+				C9452A3D16094F2600D8FF98 /* AppIcon144.png in Resources */,
+				C9452A3E16094F2600D8FF98 /* AppIcon72.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
