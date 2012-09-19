@@ -144,7 +144,7 @@
     NSRegularExpression *regex;
     if (self.regexString) {
         regex = [NSRegularExpression regularExpressionWithPattern:self.regexString
-                                                          options:NSRegularExpressionCaseInsensitive
+                                                          options:NSRegularExpressionCaseInsensitive|NSRegularExpressionDotMatchesLineSeparators
                                                             error:&regexError];
     }
     
