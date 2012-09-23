@@ -12,6 +12,7 @@
 		C9452A3D16094F2600D8FF98 /* AppIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3B16094F2600D8FF98 /* AppIcon144.png */; };
 		C9452A3E16094F2600D8FF98 /* AppIcon72.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3C16094F2600D8FF98 /* AppIcon72.png */; };
 		C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */; };
+		C97FBC46160F9934008BBF41 /* CAFGistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C97FBC45160F9934008BBF41 /* CAFGistTableViewController.m */; };
 		C99086CB15E94E0600182E2B /* buildSetting.txt in Resources */ = {isa = PBXBuildFile; fileRef = C99086CA15E94E0600182E2B /* buildSetting.txt */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -50,6 +51,8 @@
 		C9452A3C16094F2600D8FF98 /* AppIcon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon72.png; sourceTree = "<group>"; };
 		C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFInputAccessoryPlaceholder.h; sourceTree = "<group>"; };
 		C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFInputAccessoryPlaceholder.m; sourceTree = "<group>"; };
+		C97FBC44160F9934008BBF41 /* CAFGistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFGistTableViewController.h; sourceTree = "<group>"; };
+		C97FBC45160F9934008BBF41 /* CAFGistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFGistTableViewController.m; sourceTree = "<group>"; };
 		C99086CA15E94E0600182E2B /* buildSetting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildSetting.txt; sourceTree = "<group>"; };
 		C9A8B79315E939F80023FEBC /* Curiosity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curiosity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B79715E939F80023FEBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -109,6 +112,8 @@
 				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
 				C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */,
 				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
+				C97FBC44160F9934008BBF41 /* CAFGistTableViewController.h */,
+				C97FBC45160F9934008BBF41 /* CAFGistTableViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */,
 				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 				C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */,
+				C97FBC46160F9934008BBF41 /* CAFGistTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
