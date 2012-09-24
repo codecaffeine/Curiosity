@@ -109,6 +109,27 @@
                     NSString *fileURLString = [[fileInfo objectForKey:@"raw_url"] stringByAddingPercentEscapesUsingEncoding:self.encoding];
                     NSURL *fileURL = [NSURL URLWithString:fileURLString];
                     NSLog(@"fileURL: %@", fileURL);
+                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fileURL];
+                    [NSURLConnection sendAsynchronousRequest:request
+                                                       queue:[NSOperationQueue currentQueue]
+                                           completionHandler:^(NSURLResponse *response,
+                                                               NSData *data,
+                                                               NSError *error) {
+                                               
+                                               if (data) {
+                                                   CFStringRef encodingName = (__bridge CFStringRef)[response textEncodingName];
+                                                   CFStringEncoding ianaCharSetName = CFStringConvertIANACharSetNameToEncoding(encodingName);
+                                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(ianaCharSetName);
+                                                   
+                                                   NSString *result = [[NSString alloc] initWithData:data
+                                                                                            encoding:encoding];
+                                                   NSLog(@"result: %@", result);
+                                               } else {
+                                                   NSLog(@"response: %@", response);
+                                                   NSLog(@"data: %@", data);
+                                                   NSLog(@"error: %@", error);
+                                               }
+                                           }];
                 }
             } else {
                 NSLog(@"why are there more than one ? %@", allKeys);
