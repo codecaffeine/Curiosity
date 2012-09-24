@@ -10,6 +10,7 @@
 
 @interface CAFGistTableViewController ()
 @property (copy, nonatomic) NSArray *gists;
+@property (assign, nonatomic) NSStringEncoding encoding;
 @end
 
 
@@ -38,6 +39,10 @@
                                                NSData *data,
                                                NSError *error) {
                                if (data) {
+                                   CFStringRef encodingName = (__bridge CFStringRef)[response textEncodingName];
+                                   CFStringEncoding ianaCharSetName = CFStringConvertIANACharSetNameToEncoding(encodingName);
+                                   self.encoding = CFStringConvertEncodingToNSStringEncoding(ianaCharSetName);
+                                   NSLog(@"self.encoding: %d", self.encoding);
                                    NSError *jsonSerializationError;
                                    id serializedJSON = [NSJSONSerialization JSONObjectWithData:data
                                                                                        options:0
@@ -78,10 +83,8 @@
 {
     static NSString *CellIdentifier = @"GistCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     if (indexPath.row < self.gists.count) {
         NSDictionary *currentGist = [self.gists objectAtIndex:indexPath.row];
-        // Configure the cell...
         cell.textLabel.text = [currentGist objectForKey:@"description"];
     }
     return cell;
@@ -90,6 +93,28 @@
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row < self.gists.count) {
+        NSDictionary *currentGist = [self.gists objectAtIndex:indexPath.row];
+        id filesObject = [currentGist objectForKey:@"files"];
+        if ([filesObject isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *files = (NSDictionary *)filesObject;
+            NSLog(@"files: %@", files);
+            NSArray *allKeys = [files allKeys];
+            if ([allKeys count] == 1 && [[allKeys lastObject] isKindOfClass:[NSString class]]) {
+                NSString *fileName = [allKeys lastObject];
+                id fileInfoObject = [files objectForKey:fileName];
+                NSLog(@"%@ = %@", fileName, fileInfoObject);
+                if ([fileInfoObject isKindOfClass:[NSDictionary class]]) {
+                    NSDictionary *fileInfo = (NSDictionary *)fileInfoObject;
+                    NSString *fileURLString = [[fileInfo objectForKey:@"raw_url"] stringByAddingPercentEscapesUsingEncoding:self.encoding];
+                    NSURL *fileURL = [NSURL URLWithString:fileURLString];
+                    NSLog(@"fileURL: %@", fileURL);
+                }
+            } else {
+                NSLog(@"why are there more than one ? %@", allKeys);
+            }
+        }
+    }
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
