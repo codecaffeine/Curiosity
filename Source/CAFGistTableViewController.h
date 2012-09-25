@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CAFGistTableViewController : UITableViewController
+@protocol CAFGistTableViewControllerDelegate;
 
+@interface CAFGistTableViewController : UITableViewController
+@property (weak, nonatomic) id<CAFGistTableViewControllerDelegate> delegate;
+@end
+
+
+@protocol CAFGistTableViewControllerDelegate <NSObject>
+- (void)gistTableViewController:(CAFGistTableViewController *)gistTableViewController
+                   didReturnURL:(NSURL *)url;
 @end

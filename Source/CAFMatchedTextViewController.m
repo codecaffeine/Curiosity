@@ -8,12 +8,15 @@
 
 #import "CAFMatchedTextViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CAFGistTableViewController.h"
 
-@interface CAFMatchedTextViewController () <UITextFieldDelegate>
+@interface CAFMatchedTextViewController () <UITextFieldDelegate,
+                                            CAFGistTableViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *urlField;
 @property (strong, nonatomic) IBOutlet UITextField *regexTextField;
 @property (strong, nonatomic) IBOutlet UIView *regexTextBar;
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
+@property (strong, nonatomic) UIPopoverController *gistPopoverController;
 - (IBAction)urlFieldDidEndOnExit:(UITextField *)sender;
 @end
 
@@ -137,6 +140,31 @@
 }
 
 
+#pragma mark - CAFGistTableViewControllerDelegate
+- (void)gistTableViewController:(CAFGistTableViewController *)gistTableViewController
+                   didReturnURL:(NSURL *)url
+{
+    [self.gistPopoverController dismissPopoverAnimated:YES];
+    
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:urlRequest
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data,
+                                               NSError *error) {
+                               NSString *textEncodingName = response.textEncodingName;
+                               if (textEncodingName) {
+                                   CFStringEncoding stringEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);
+                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
+                                   NSString *responseString = [[NSString alloc] initWithData:data
+                                                                                    encoding:encoding];
+                                   self.inputText = responseString;
+                                   self.title = response.suggestedFilename;
+                               }
+                           }];
+}
+
+
 #pragma mark - Private Instance Methods
 - (void)updateRegexMatch
 {
@@ -166,6 +194,23 @@
                              }];
         self.matchedTextView.text = nil;
         self.matchedTextView.attributedText = displayString;
+    }
+}
+
+
+- (IBAction)loadButtonPressed:(UIBarButtonItem *)sender
+{
+    if (self.gistPopoverController.popoverVisible) {
+        [self.gistPopoverController dismissPopoverAnimated:YES];
+    } else {
+        if (!self.gistPopoverController) {
+            CAFGistTableViewController *gistViewController = [[CAFGistTableViewController alloc] init];
+            gistViewController.delegate = self;
+            self.gistPopoverController = [[UIPopoverController alloc] initWithContentViewController:gistViewController];
+        }
+        [self.gistPopoverController presentPopoverFromBarButtonItem:sender
+                                           permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                           animated:YES];
     }
 }
 

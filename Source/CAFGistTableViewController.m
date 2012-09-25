@@ -8,6 +8,8 @@
 
 #import "CAFGistTableViewController.h"
 
+NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
+
 @interface CAFGistTableViewController ()
 @property (copy, nonatomic) NSArray *gists;
 @property (assign, nonatomic) NSStringEncoding encoding;
@@ -28,7 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CAFGistCellIdentifier];
     
     NSURL *url = [NSURL URLWithString:@"https://api.github.com/users/codecaffeine/gists"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -81,8 +85,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"GistCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CAFGistCellIdentifier
+                                                            forIndexPath:indexPath];    
     if (indexPath.row < self.gists.count) {
         NSDictionary *currentGist = [self.gists objectAtIndex:indexPath.row];
         cell.textLabel.text = [currentGist objectForKey:@"description"];
@@ -109,27 +113,8 @@
                     NSString *fileURLString = [[fileInfo objectForKey:@"raw_url"] stringByAddingPercentEscapesUsingEncoding:self.encoding];
                     NSURL *fileURL = [NSURL URLWithString:fileURLString];
                     NSLog(@"fileURL: %@", fileURL);
-                    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:fileURL];
-                    [NSURLConnection sendAsynchronousRequest:request
-                                                       queue:[NSOperationQueue currentQueue]
-                                           completionHandler:^(NSURLResponse *response,
-                                                               NSData *data,
-                                                               NSError *error) {
-                                               
-                                               if (data) {
-                                                   CFStringRef encodingName = (__bridge CFStringRef)[response textEncodingName];
-                                                   CFStringEncoding ianaCharSetName = CFStringConvertIANACharSetNameToEncoding(encodingName);
-                                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(ianaCharSetName);
-                                                   
-                                                   NSString *result = [[NSString alloc] initWithData:data
-                                                                                            encoding:encoding];
-                                                   NSLog(@"result: %@", result);
-                                               } else {
-                                                   NSLog(@"response: %@", response);
-                                                   NSLog(@"data: %@", data);
-                                                   NSLog(@"error: %@", error);
-                                               }
-                                           }];
+                    [self.delegate gistTableViewController:self
+                                              didReturnURL:fileURL];
                 }
             } else {
                 NSLog(@"why are there more than one ? %@", allKeys);
