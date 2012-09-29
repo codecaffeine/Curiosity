@@ -37,6 +37,14 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SourceCodePro-Black.otf</string>
+		<string>SourceCodePro-Bold.otf</string>
+		<string>SourceCodePro-ExtraLight.otf</string>
+		<string>SourceCodePro-Light.otf</string>
+		<string>SourceCodePro-Regular.otf</string>
+	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
 	<key>UIPrerenderedIcon</key>
