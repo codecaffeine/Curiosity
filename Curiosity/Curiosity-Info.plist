@@ -44,6 +44,7 @@
 		<string>SourceCodePro-ExtraLight.otf</string>
 		<string>SourceCodePro-Light.otf</string>
 		<string>SourceCodePro-Regular.otf</string>
+		<string>SourceCodePro-Semibold.otf</string>
 	</array>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
