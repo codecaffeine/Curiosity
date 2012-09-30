@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C911FB5B1618E7CE0035999A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C911FB5A1618E7CE0035999A /* LoadingCell.xib */; };
 		C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */; };
 		C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */; };
 		C9452A3D16094F2600D8FF98 /* AppIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3B16094F2600D8FF98 /* AppIcon144.png */; };
@@ -49,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C911FB5A1618E7CE0035999A /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFRegexInputViewController.h; sourceTree = "<group>"; };
 		C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFRegexInputViewController.m; sourceTree = "<group>"; };
 		C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewController.h; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
 				C97FBC44160F9934008BBF41 /* CAFGistTableViewController.h */,
 				C97FBC45160F9934008BBF41 /* CAFGistTableViewController.m */,
+				C911FB5A1618E7CE0035999A /* LoadingCell.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */,
 				C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */,
 				C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */,
+				C911FB5B1618E7CE0035999A /* LoadingCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
