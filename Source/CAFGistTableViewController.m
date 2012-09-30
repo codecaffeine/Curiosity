@@ -9,10 +9,12 @@
 #import "CAFGistTableViewController.h"
 
 NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
+NSString *const CAFLoadingCellIdentifier = @"CAFLoadingCellIdentifier";
 
 @interface CAFGistTableViewController ()
 @property (copy, nonatomic) NSArray *gists;
 @property (assign, nonatomic) NSStringEncoding encoding;
+@property (assign, nonatomic) BOOL isLoading;
 @end
 
 
@@ -32,7 +34,16 @@ NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
     [super viewDidLoad];
     
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:CAFGistCellIdentifier];
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:CAFGistCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:@"LoadingCell" bundle:nil]
+         forCellReuseIdentifier:CAFLoadingCellIdentifier];
+    
+    // Load the gists from github
+    self.isLoading = YES;
+    NSInteger numberOfRows = [self tableView:self.tableView numberOfRowsInSection:0];
+    self.contentSizeForViewInPopover = CGSizeMake(320.0,
+                                                  self.tableView.rowHeight * numberOfRows);
     
     NSURL *url = [NSURL URLWithString:@"https://api.github.com/users/codecaffeine/gists"];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -54,7 +65,11 @@ NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
                                    if (serializedJSON && [serializedJSON isKindOfClass:[NSArray class]]) {
                                        self.gists = (NSArray *)serializedJSON;
                                        NSLog(@"gists: %@", self.gists);
+                                       self.isLoading = NO;
                                        [self.tableView reloadData];
+                                       NSInteger numberOfRows = [self tableView:self.tableView numberOfRowsInSection:0];
+                                       self.contentSizeForViewInPopover = CGSizeMake(self.view.bounds.size.width,
+                                                                                     self.tableView.rowHeight * numberOfRows);
                                    } else if (jsonSerializationError) {
                                        NSLog(@"jsonSerializationError: %@", jsonSerializationError);
                                    }
@@ -80,16 +95,21 @@ NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.gists count];
+    return self.isLoading ? 1 : [self.gists count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CAFGistCellIdentifier
-                                                            forIndexPath:indexPath];    
-    if (indexPath.row < self.gists.count) {
-        NSDictionary *currentGist = [self.gists objectAtIndex:indexPath.row];
-        cell.textLabel.text = [currentGist objectForKey:@"description"];
+    UITableViewCell *cell;
+    if (self.isLoading) {
+        cell = [tableView dequeueReusableCellWithIdentifier:CAFLoadingCellIdentifier];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:CAFGistCellIdentifier
+                                               forIndexPath:indexPath];
+        if (indexPath.row < self.gists.count) {
+            NSDictionary *currentGist = [self.gists objectAtIndex:indexPath.row];
+            cell.textLabel.text = [currentGist objectForKey:@"description"];
+        }
     }
     return cell;
 }
@@ -121,13 +141,6 @@ NSString *const CAFGistCellIdentifier = @"CAFGistCellIdentifier";
             }
         }
     }
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end
