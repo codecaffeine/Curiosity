@@ -9,13 +9,13 @@
 #import "CAFProviderSelectorViewController.h"
 
 @interface CAFProviderSelectorViewController ()
-@property (strong, nonatomic) IBOutlet UIView *githubTableHeader;
+@property (strong, nonatomic) IBOutlet UIView *gitHubTableHeader;
+@property (strong, nonatomic) NSArray *gitHubActions;
+@property (assign, nonatomic) BOOL isSignedIntoGitHub;
 @end
 
 
-@implementation CAFProviderSelectorViewController {
-    BOOL _isSignedIntoGitHub;
-}
+@implementation CAFProviderSelectorViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,6 +30,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"Read Text from:",
+                                   @"ProviderSelector title");
+        
+    // Build GitHub Action List
+    NSMutableArray *gitHubActions = [NSMutableArray new];
+    if (self.isSignedIntoGitHub) {
+        [gitHubActions addObjectsFromArray:@[@"My Gists", @"My Favorited Gists"]];
+    }
+    [gitHubActions addObject:@"User Gists"];
+    self.gitHubActions = gitHubActions;
 }
 
 
@@ -49,7 +59,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _isSignedIntoGitHub ? 3 : 1;
+    return [self.gitHubActions count];
 }
 
 
@@ -58,9 +68,13 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                      reuseIdentifier:CellIdentifier];
     }
     
+    if (indexPath.row < [self.gitHubActions count]) {
+        cell.textLabel.text = [self.gitHubActions objectAtIndex:indexPath.row];
+    }
     
     return cell;
 }
@@ -73,12 +87,12 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return self.githubTableHeader;
+    return self.gitHubTableHeader;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return self.githubTableHeader.bounds.size.height;
+    return self.gitHubTableHeader.bounds.size.height;
 }
 
 @end
