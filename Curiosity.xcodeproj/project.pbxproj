@@ -20,6 +20,10 @@
 		C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5A1617BD600042CB1A /* SourceCodePro-Light.otf */; };
 		C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */; };
 		C99086CB15E94E0600182E2B /* buildSetting.txt in Resources */ = {isa = PBXBuildFile; fileRef = C99086CA15E94E0600182E2B /* buildSetting.txt */; };
+		C99951F7162B3BF5002DB80A /* CAFProviderSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C99951F5162B3BF5002DB80A /* CAFProviderSelectorViewController.m */; };
+		C99951F8162B3BF5002DB80A /* CAFProviderSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C99951F6162B3BF5002DB80A /* CAFProviderSelectorViewController.xib */; };
+		C99951FB162B4041002DB80A /* githubLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = C99951FA162B4041002DB80A /* githubLogo.png */; };
+		C99951FD162B4388002DB80A /* githubLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C99951FC162B4388002DB80A /* githubLogo@2x.png */; };
 		C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -67,6 +71,11 @@
 		C9817E5A1617BD600042CB1A /* SourceCodePro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Light.otf"; sourceTree = "<group>"; };
 		C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
 		C99086CA15E94E0600182E2B /* buildSetting.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = buildSetting.txt; sourceTree = "<group>"; };
+		C99951F4162B3BF5002DB80A /* CAFProviderSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFProviderSelectorViewController.h; sourceTree = "<group>"; };
+		C99951F5162B3BF5002DB80A /* CAFProviderSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFProviderSelectorViewController.m; sourceTree = "<group>"; };
+		C99951F6162B3BF5002DB80A /* CAFProviderSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFProviderSelectorViewController.xib; sourceTree = "<group>"; };
+		C99951FA162B4041002DB80A /* githubLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = githubLogo.png; sourceTree = "<group>"; };
+		C99951FC162B4388002DB80A /* githubLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "githubLogo@2x.png"; sourceTree = "<group>"; };
 		C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Semibold.otf"; sourceTree = "<group>"; };
 		C9A8B79315E939F80023FEBC /* Curiosity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curiosity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B79715E939F80023FEBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -120,14 +129,17 @@
 		C92BBCA115EA4FAB00A20012 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
-				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
-				C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */,
-				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
-				C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */,
-				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
 				C97FBC44160F9934008BBF41 /* CAFGistTableViewController.h */,
 				C97FBC45160F9934008BBF41 /* CAFGistTableViewController.m */,
+				C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */,
+				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
+				C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */,
+				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
+				C99951F4162B3BF5002DB80A /* CAFProviderSelectorViewController.h */,
+				C99951F5162B3BF5002DB80A /* CAFProviderSelectorViewController.m */,
+				C99951F6162B3BF5002DB80A /* CAFProviderSelectorViewController.xib */,
+				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
+				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
 				C911FB5A1618E7CE0035999A /* LoadingCell.xib */,
 			);
 			path = Source;
@@ -137,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				C99086CA15E94E0600182E2B /* buildSetting.txt */,
+				C99951FA162B4041002DB80A /* githubLogo.png */,
+				C99951FC162B4388002DB80A /* githubLogo@2x.png */,
 				C9817E571617BD600042CB1A /* SourceCodePro-Black.otf */,
 				C9817E581617BD600042CB1A /* SourceCodePro-Bold.otf */,
 				C9817E591617BD600042CB1A /* SourceCodePro-ExtraLight.otf */,
@@ -301,6 +315,9 @@
 				C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */,
 				C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */,
 				C911FB5B1618E7CE0035999A /* LoadingCell.xib in Resources */,
+				C99951F8162B3BF5002DB80A /* CAFProviderSelectorViewController.xib in Resources */,
+				C99951FB162B4041002DB80A /* githubLogo.png in Resources */,
+				C99951FD162B4388002DB80A /* githubLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +359,7 @@
 				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 				C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */,
 				C97FBC46160F9934008BBF41 /* CAFGistTableViewController.m in Sources */,
+				C99951F7162B3BF5002DB80A /* CAFProviderSelectorViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

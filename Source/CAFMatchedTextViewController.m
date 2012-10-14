@@ -9,6 +9,7 @@
 #import "CAFMatchedTextViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "CAFGistTableViewController.h"
+#import "CAFProviderSelectorViewController.h"
 
 @interface CAFMatchedTextViewController () <UITextFieldDelegate,
                                             CAFGistTableViewControllerDelegate>
@@ -212,9 +213,9 @@
         [self.gistPopoverController dismissPopoverAnimated:YES];
     } else {
         if (!self.gistPopoverController) {
-            CAFGistTableViewController *gistViewController = [[CAFGistTableViewController alloc] init];
-            gistViewController.delegate = self;
-            self.gistPopoverController = [[UIPopoverController alloc] initWithContentViewController:gistViewController];
+            CAFProviderSelectorViewController *providerSelector = [[CAFProviderSelectorViewController alloc] init];
+            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:providerSelector];
+            self.gistPopoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
         }
         [self.gistPopoverController presentPopoverFromBarButtonItem:sender
                                            permittedArrowDirections:UIPopoverArrowDirectionUp
