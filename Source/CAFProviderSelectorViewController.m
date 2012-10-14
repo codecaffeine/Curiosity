@@ -7,6 +7,7 @@
 //
 
 #import "CAFProviderSelectorViewController.h"
+#import "CAFGitHubSignInViewController.h"
 
 @interface CAFProviderSelectorViewController ()
 @property (strong, nonatomic) IBOutlet UIView *gitHubTableHeader;
@@ -30,7 +31,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Read Text from:",
+    self.title = NSLocalizedString(@"Load File",
                                    @"ProviderSelector title");
         
     // Build GitHub Action List
@@ -93,6 +94,15 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return self.gitHubTableHeader.bounds.size.height;
+}
+
+
+#pragma mark - Actions
+- (IBAction)gitHubSignIn:(UIButton *)sender
+{
+    CAFGitHubSignInViewController *signInViewController = [[CAFGitHubSignInViewController alloc] init];
+    [self.navigationController pushViewController:signInViewController
+                                         animated:YES];
 }
 
 @end
