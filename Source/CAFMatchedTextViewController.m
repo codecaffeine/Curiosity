@@ -8,17 +8,11 @@
 
 #import "CAFMatchedTextViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CAFGistTableViewController.h"
-#import "CAFProviderSelectorViewController.h"
 
-@interface CAFMatchedTextViewController () <UITextFieldDelegate,
-                                            CAFGistTableViewControllerDelegate>
-@property (strong, nonatomic) IBOutlet UITextField *urlField;
+@interface CAFMatchedTextViewController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *regexTextField;
 @property (strong, nonatomic) IBOutlet UIView *regexTextBar;
 @property (strong, nonatomic) IBOutlet UITextView *matchedTextView;
-@property (strong, nonatomic) UIPopoverController *gistPopoverController;
-- (IBAction)urlFieldDidEndOnExit:(UITextField *)sender;
 @end
 
 @implementation CAFMatchedTextViewController {
@@ -92,7 +86,6 @@
         [_inputAccessoryPlaceholderView addSubview:bottomBlack];
     }
     self.regexTextField.inputAccessoryView = _inputAccessoryPlaceholderView;
-    self.urlField.inputAccessoryView = _inputAccessoryPlaceholderView;
     
     [self updateRegexMatch];
 }
@@ -116,53 +109,6 @@
 {
     _inputText = [inputText copy];
     [self updateRegexMatch];
-}
-
-
-- (IBAction)urlFieldDidEndOnExit:(UITextField *)urlField
-{
-    NSURL *url = [NSURL URLWithString:urlField.text];
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error) {
-                               NSString *textEncodingName = response.textEncodingName;
-                               if (textEncodingName) {
-                                   CFStringEncoding stringEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);
-                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
-                                   NSString *responseString = [[NSString alloc] initWithData:data
-                                                                                    encoding:encoding];
-                                   self.inputText = responseString;
-                                   self.title = response.suggestedFilename;
-                               }
-                           }];
-}
-
-
-#pragma mark - CAFGistTableViewControllerDelegate
-- (void)gistTableViewController:(CAFGistTableViewController *)gistTableViewController
-                   didReturnURL:(NSURL *)url
-{
-    [self.gistPopoverController dismissPopoverAnimated:YES];
-    
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
-    [NSURLConnection sendAsynchronousRequest:urlRequest
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *error) {
-                               NSString *textEncodingName = response.textEncodingName;
-                               if (textEncodingName) {
-                                   CFStringEncoding stringEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)textEncodingName);
-                                   NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(stringEncoding);
-                                   NSString *responseString = [[NSString alloc] initWithData:data
-                                                                                    encoding:encoding];
-                                   self.inputText = responseString;
-                                   self.title = response.suggestedFilename;
-                               }
-                           }];
 }
 
 
@@ -209,18 +155,6 @@
 
 - (IBAction)loadButtonPressed:(UIBarButtonItem *)sender
 {
-    if (self.gistPopoverController.popoverVisible) {
-        [self.gistPopoverController dismissPopoverAnimated:YES];
-    } else {
-        if (!self.gistPopoverController) {
-            CAFProviderSelectorViewController *providerSelector = [[CAFProviderSelectorViewController alloc] init];
-            UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:providerSelector];
-            self.gistPopoverController = [[UIPopoverController alloc] initWithContentViewController:navController];
-        }
-        [self.gistPopoverController presentPopoverFromBarButtonItem:sender
-                                           permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                           animated:YES];
-    }
 }
 
 
