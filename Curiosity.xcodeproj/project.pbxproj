@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C911FB5B1618E7CE0035999A /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C911FB5A1618E7CE0035999A /* LoadingCell.xib */; };
 		C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */; };
 		C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */; };
 		C9452A3D16094F2600D8FF98 /* AppIcon144.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3B16094F2600D8FF98 /* AppIcon144.png */; };
@@ -37,6 +36,8 @@
 		C9A8B7C115E939F80023FEBC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79D15E939F80023FEBC /* CoreData.framework */; };
 		C9A8B7C915E939F80023FEBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9A8B7C715E939F80023FEBC /* InfoPlist.strings */; };
 		C9A8B7CC15E939F80023FEBC /* CuriosityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */; };
+		C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D871708AD970099DB57 /* CAFFileURLClient.m */; };
+		C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */; };
 		C9E7EA7415FBFD8600091343 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E7EA7315FBFD8600091343 /* QuartzCore.framework */; };
 		D5165C35B6AF470D8DCDD4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19750D57E1294B4AA63692BF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -54,7 +55,6 @@
 /* Begin PBXFileReference section */
 		19750D57E1294B4AA63692BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6D907FA8296406BA19C564F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		C911FB5A1618E7CE0035999A /* LoadingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingCell.xib; sourceTree = "<group>"; };
 		C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFRegexInputViewController.h; sourceTree = "<group>"; };
 		C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFRegexInputViewController.m; sourceTree = "<group>"; };
 		C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewController.h; sourceTree = "<group>"; };
@@ -85,12 +85,16 @@
 		C9A8B7A915E939F80023FEBC /* CAFAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CAFAppDelegate.m; sourceTree = "<group>"; };
 		C9A8B7AC15E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		C9A8B7AF15E939F80023FEBC /* Curiosity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Curiosity.xcdatamodel; sourceTree = "<group>"; };
-		C9A8B7BC15E939F80023FEBC /* Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = Tests.octest; path = CuriosityTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuriosityTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9A8B7C615E939F80023FEBC /* CuriosityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CuriosityTests-Info.plist"; sourceTree = "<group>"; };
 		C9A8B7C815E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuriosityTests.h; sourceTree = "<group>"; };
 		C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CuriosityTests.m; sourceTree = "<group>"; };
+		C9E52D861708AD970099DB57 /* CAFFileURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFFileURLClient.h; sourceTree = "<group>"; };
+		C9E52D871708AD970099DB57 /* CAFFileURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFFileURLClient.m; sourceTree = "<group>"; };
+		C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFTestFileURLClient.h; sourceTree = "<group>"; };
+		C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFTestFileURLClient.m; sourceTree = "<group>"; };
 		C9E7EA7315FBFD8600091343 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -131,7 +135,8 @@
 				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
 				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
 				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
-				C911FB5A1618E7CE0035999A /* LoadingCell.xib */,
+				C9E52D861708AD970099DB57 /* CAFFileURLClient.h */,
+				C9E52D871708AD970099DB57 /* CAFFileURLClient.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -169,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				C9A8B79315E939F80023FEBC /* Curiosity.app */,
-				C9A8B7BC15E939F80023FEBC /* Tests.octest */,
+				C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,6 +216,8 @@
 				C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */,
 				C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */,
 				C9A8B7C515E939F80023FEBC /* Supporting Files */,
+				C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */,
+				C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -261,7 +268,7 @@
 			);
 			name = CuriosityTests;
 			productName = CuriosityTests;
-			productReference = C9A8B7BC15E939F80023FEBC /* Tests.octest */;
+			productReference = C9A8B7BC15E939F80023FEBC /* CuriosityTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -308,7 +315,6 @@
 				C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */,
 				C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */,
 				C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */,
-				C911FB5B1618E7CE0035999A /* LoadingCell.xib in Resources */,
 				C99951FB162B4041002DB80A /* githubLogo.png in Resources */,
 				C99951FD162B4388002DB80A /* githubLogo@2x.png in Resources */,
 			);
@@ -365,6 +371,7 @@
 				C92BBCA515EA4FDF00A20012 /* CAFRegexInputViewController.m in Sources */,
 				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 				C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */,
+				C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9A8B7CC15E939F80023FEBC /* CuriosityTests.m in Sources */,
+				C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +497,7 @@
 		};
 		C9A8B7D315E939F80023FEBC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D907FA8296406BA19C564F /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Curiosity.app/Curiosity";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -506,6 +515,7 @@
 		};
 		C9A8B7D415E939F80023FEBC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D907FA8296406BA19C564F /* Pods.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Curiosity.app/Curiosity";
 				FRAMEWORK_SEARCH_PATHS = (
