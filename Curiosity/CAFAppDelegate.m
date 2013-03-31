@@ -19,31 +19,7 @@
 
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    if ([self.window.rootViewController isKindOfClass:[UISplitViewController class]]) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        if ([splitViewController.viewControllers count] == 2) {
-            UIViewController *rightViewController = [splitViewController.viewControllers objectAtIndex:1];
-            if ([rightViewController isKindOfClass:[UINavigationController class]]) {
-                UINavigationController *navController = (UINavigationController *)rightViewController;
-                if ([navController.visibleViewController isKindOfClass:[CAFMatchedTextViewController class]]) {
-                    _matchedTextViewController = (CAFMatchedTextViewController *)navController.visibleViewController;
-                } else {
-                    NSLog(@"visibleViewController is not CAFMatchedTextViewController: %@",
-                          NSStringFromClass([navController.visibleViewController class]));
-                }
-            } else {
-                NSLog(@"rightViewController not a UINavigatonController: %@",
-                      NSStringFromClass([rightViewController class]));
-            }
-        } else {
-            NSLog(@"SplitViewController doesn't have 2 viewControllers: %@",
-                  splitViewController.viewControllers);
-        }
-    } else {
-        NSLog(@"root view controller isn't a splitViewController");
-    }
-    
+{    
     return YES;
 }
 							
