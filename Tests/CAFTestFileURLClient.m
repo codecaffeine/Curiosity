@@ -7,7 +7,25 @@
 //
 
 #import "CAFTestFileURLClient.h"
+#import "CAFMockURLConnection.h"
 
 @implementation CAFTestFileURLClient
+
+- (void)setUp
+{
+    [NSURLProtocol registerClass:[CAFMockURLConnection class]];
+}
+
+
+- (void)tearDown
+{
+    [NSURLProtocol unregisterClass:[CAFMockURLConnection class]];
+}
+
+
+- (void)test404ReturnsError
+{
+    STFail(@"Not implemented");
+}
 
 @end
