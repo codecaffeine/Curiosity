@@ -14,7 +14,10 @@
               success:(void (^)(AFHTTPRequestOperation *operation, NSString *filename, NSString *fileContents))success
               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
 {
-    
+    [self getPath:path
+       parameters:nil
+          success:nil
+          failure:failure];
 }
 
 @end
