@@ -16,7 +16,11 @@
 {
     [self getPath:path
        parameters:nil
-          success:nil
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              if (success) {
+                  success(nil, nil, nil);
+              }
+          }
           failure:failure];
 }
 

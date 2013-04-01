@@ -34,7 +34,7 @@
     
     CAFFileURLClient *client = [[CAFFileURLClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://foobar.com"]];
     
-    __block NSError *returnedError;
+    __block NSError *returnedError = nil;
     [client getFileAtPath:@"something.txt"
                   success:nil
                   failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -47,6 +47,30 @@
                                  beforeDate:until];
     }
     STAssertNotNil(returnedError, @"Error should not be nil");
+}
+
+
+- (void)test200CallsSuccess
+{
+    [CAFMockURLConnection setResponseWithStatusCode:200
+                                       headerFields:nil
+                                           bodyData:nil];
+    
+    CAFFileURLClient *client = [[CAFFileURLClient alloc] initWithBaseURL:[NSURL URLWithString:@"http://foobar.com"]];
+    
+    __block BOOL successCalled = NO;
+    [client getFileAtPath:@"something.txt"
+                  success:^(AFHTTPRequestOperation *operation, NSString *filename, NSString *fileContents) {
+                      successCalled = YES;
+                  }
+                  failure:nil];
+    // Run loop
+    NSDate *until = [NSDate dateWithTimeIntervalSinceNow:0.5];
+    while (!successCalled && ([until compare:[NSDate date]] == NSOrderedDescending)) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:until];
+    }
+    STAssertTrue(successCalled, @"Success should have been called");
 }
 
 @end
