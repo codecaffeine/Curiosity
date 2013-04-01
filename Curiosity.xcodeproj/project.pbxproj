@@ -35,7 +35,6 @@
 		C9A8B7C015E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
 		C9A8B7C115E939F80023FEBC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79D15E939F80023FEBC /* CoreData.framework */; };
 		C9A8B7C915E939F80023FEBC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9A8B7C715E939F80023FEBC /* InfoPlist.strings */; };
-		C9A8B7CC15E939F80023FEBC /* CuriosityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */; };
 		C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D871708AD970099DB57 /* CAFFileURLClient.m */; };
 		C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */; };
 		C9E52D8E1708AF960099DB57 /* CAFMockURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D8D1708AF960099DB57 /* CAFMockURLConnection.m */; };
@@ -90,8 +89,6 @@
 		C9A8B7BD15E939F80023FEBC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		C9A8B7C615E939F80023FEBC /* CuriosityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CuriosityTests-Info.plist"; sourceTree = "<group>"; };
 		C9A8B7C815E939F80023FEBC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CuriosityTests.h; sourceTree = "<group>"; };
-		C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CuriosityTests.m; sourceTree = "<group>"; };
 		C9E52D861708AD970099DB57 /* CAFFileURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFFileURLClient.h; sourceTree = "<group>"; };
 		C9E52D871708AD970099DB57 /* CAFFileURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFFileURLClient.m; sourceTree = "<group>"; };
 		C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFTestFileURLClient.h; sourceTree = "<group>"; };
@@ -216,8 +213,6 @@
 		C9A8B7C415E939F80023FEBC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C9A8B7CA15E939F80023FEBC /* CuriosityTests.h */,
-				C9A8B7CB15E939F80023FEBC /* CuriosityTests.m */,
 				C9A8B7C515E939F80023FEBC /* Supporting Files */,
 				C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */,
 				C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */,
@@ -384,7 +379,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9A8B7CC15E939F80023FEBC /* CuriosityTests.m in Sources */,
 				C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */,
 				C9E52D8E1708AF960099DB57 /* CAFMockURLConnection.m in Sources */,
 			);
