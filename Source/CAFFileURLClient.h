@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Matthew Thomas. All rights reserved.
 //
 
-#import "AFHTTPClient.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface CAFFileURLClient : AFHTTPClient
 

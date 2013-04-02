@@ -18,7 +18,7 @@
        parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject) {
               if (success) {
-                  success(nil, nil, nil);
+                  success(operation, operation.response.suggestedFilename, operation.responseString);
               }
           }
           failure:failure];
