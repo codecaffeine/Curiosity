@@ -38,6 +38,7 @@
 		C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D871708AD970099DB57 /* CAFFileURLClient.m */; };
 		C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */; };
 		C9E52D8E1708AF960099DB57 /* CAFMockURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D8D1708AF960099DB57 /* CAFMockURLConnection.m */; };
+		C9E52D91170BAE410099DB57 /* CAFFileFromURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E52D90170BAE410099DB57 /* CAFFileFromURLViewController.m */; };
 		C9E7EA7415FBFD8600091343 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E7EA7315FBFD8600091343 /* QuartzCore.framework */; };
 		D5165C35B6AF470D8DCDD4A8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19750D57E1294B4AA63692BF /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -95,6 +96,8 @@
 		C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFTestFileURLClient.m; sourceTree = "<group>"; };
 		C9E52D8C1708AF960099DB57 /* CAFMockURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMockURLConnection.h; sourceTree = "<group>"; };
 		C9E52D8D1708AF960099DB57 /* CAFMockURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFMockURLConnection.m; sourceTree = "<group>"; };
+		C9E52D8F170BAE410099DB57 /* CAFFileFromURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFFileFromURLViewController.h; sourceTree = "<group>"; };
+		C9E52D90170BAE410099DB57 /* CAFFileFromURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFFileFromURLViewController.m; sourceTree = "<group>"; };
 		C9E7EA7315FBFD8600091343 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -137,6 +140,8 @@
 				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
 				C9E52D861708AD970099DB57 /* CAFFileURLClient.h */,
 				C9E52D871708AD970099DB57 /* CAFFileURLClient.m */,
+				C9E52D8F170BAE410099DB57 /* CAFFileFromURLViewController.h */,
+				C9E52D90170BAE410099DB57 /* CAFFileFromURLViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -372,6 +377,7 @@
 				C92BBCA815EA540900A20012 /* CAFMatchedTextViewController.m in Sources */,
 				C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */,
 				C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */,
+				C9E52D91170BAE410099DB57 /* CAFFileFromURLViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
