@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.matchedTextView.font = [UIFont fontWithName:@"SourceCodePro-Regular" size:16.0];
     NSNotificationCenter *defaultNotificationCenter = [NSNotificationCenter defaultCenter];
     [defaultNotificationCenter addObserverForName:UIKeyboardWillChangeFrameNotification
                                            object:nil
