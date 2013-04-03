@@ -7,6 +7,7 @@
 //
 
 #import "CAFMatchedTextViewController.h"
+#import "CAFFileFromURLViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CAFMatchedTextViewController () <UITextFieldDelegate>
@@ -109,6 +110,24 @@
 {
     _inputText = [inputText copy];
     [self updateRegexMatch];
+}
+
+
+#pragma mark - Storyboard Unwinding
+- (IBAction)cancelledImportingFile:(UIStoryboardSegue *)segue
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+- (IBAction)doneImportingFile:(UIStoryboardSegue *)segue
+{
+    if ([segue.sourceViewController isKindOfClass:[CAFFileFromURLViewController class]]) {
+        CAFFileFromURLViewController *fileURLViewController = (CAFFileFromURLViewController *)segue.sourceViewController;
+        self.title = fileURLViewController.filename;
+        self.matchedTextView.text = fileURLViewController.fileContents;
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
