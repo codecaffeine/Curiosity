@@ -32,13 +32,39 @@
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f18-me-eQv">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbf-th-GlG">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Match URLs">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="matchURLsButtonPressed:" destination="61B-ij-4F2" eventType="touchUpInside" id="TfT-4c-J5G"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94117653369999998" green="0.43921571970000001" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" type="user" id="Lqh-NH-DMV"/>
+                                    <constraint firstItem="Xbf-th-GlG" firstAttribute="leading" secondItem="f18-me-eQv" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gZn-QY-3gi"/>
+                                    <constraint firstItem="Xbf-th-GlG" firstAttribute="top" secondItem="f18-me-eQv" secondAttribute="top" constant="8" id="rtp-64-U0H"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c6o-yk-exf" firstAttribute="top" secondItem="kPQ-ti-qts" secondAttribute="top" type="default" id="0Hv-Tz-Ie3"/>
                             <constraint firstItem="c6o-yk-exf" firstAttribute="bottom" secondItem="kPQ-ti-qts" secondAttribute="bottom" type="default" id="3Nb-K4-gqw"/>
                             <constraint firstItem="c6o-yk-exf" firstAttribute="trailing" secondItem="kPQ-ti-qts" secondAttribute="trailing" type="default" id="E12-Bf-Ii1"/>
                             <constraint firstItem="c6o-yk-exf" firstAttribute="leading" secondItem="kPQ-ti-qts" secondAttribute="leading" type="default" id="IFM-rK-TEA"/>
+                            <constraint firstItem="f18-me-eQv" firstAttribute="trailing" secondItem="kPQ-ti-qts" secondAttribute="trailing" type="user" id="OV6-Cc-Rwd"/>
+                            <constraint firstItem="f18-me-eQv" firstAttribute="leading" secondItem="kPQ-ti-qts" secondAttribute="leading" type="user" id="arh-bV-Lty"/>
+                            <constraint firstItem="f18-me-eQv" firstAttribute="top" secondItem="kPQ-ti-qts" secondAttribute="top" type="user" id="spI-M9-CjV"/>
+                            <constraint firstItem="c6o-yk-exf" firstAttribute="top" secondItem="f18-me-eQv" secondAttribute="bottom" type="user" id="um6-lY-pZF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZJP-yN-2Ka">
@@ -168,6 +194,33 @@
             <point key="canvasLocation" x="1520" y="-2194"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="CAFFileFromURLViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CAFFileFromURLViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="goButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="urlField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="CAFMatchedTextViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CAFMatchedTextViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelledImportingFile:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="doneImportingFile:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="matchURLsButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="matchedTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="regexTextBar" candidateClass="UIView"/>
+                <relationship kind="outlet" name="regexTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UIStoryboardSegue" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIStoryboardSegue.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackTranslucent"/>
         <simulatedOrientationMetrics key="orientation"/>
