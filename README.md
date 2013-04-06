@@ -1,5 +1,14 @@
 # Curiosity
-## Advanced pattern matching tool for iOS
+## Advanced[^1] Regular Expression Editor for iOS
 
-Curiosity is an advanced pattern matching tool for iOS. Import any text file into Curiosity and create complex pattern matches to analyze and process the data.
+Curiosity is an advanced regular expression editor for iOS. Import any text file into Curiosity and create complex pattern matches to analyze and process the data.
 
+Import from:
+- URL
+- GitHub
+- DropBox
+
+So, I have importing from URL kinda working. What should I focus on now?
+1. Find URLS
+
+[^1]: What makes it advanced? A visual regular expression creator? No regex gobeldy-gook?
