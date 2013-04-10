@@ -17,6 +17,7 @@
 		C9817E5E1617BD600042CB1A /* SourceCodePro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E591617BD600042CB1A /* SourceCodePro-ExtraLight.otf */; };
 		C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5A1617BD600042CB1A /* SourceCodePro-Light.otf */; };
 		C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */; };
+		C9A5A3DA1714F9D0006AE972 /* CAFMatchedTextViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5A3D91714F9D0006AE972 /* CAFMatchedTextViewModel.m */; };
 		C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -66,6 +67,8 @@
 		C9817E591617BD600042CB1A /* SourceCodePro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraLight.otf"; sourceTree = "<group>"; };
 		C9817E5A1617BD600042CB1A /* SourceCodePro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Light.otf"; sourceTree = "<group>"; };
 		C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
+		C9A5A3D81714F9CF006AE972 /* CAFMatchedTextViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewModel.h; sourceTree = "<group>"; };
+		C9A5A3D91714F9D0006AE972 /* CAFMatchedTextViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFMatchedTextViewModel.m; sourceTree = "<group>"; };
 		C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Semibold.otf"; sourceTree = "<group>"; };
 		C9A8B79315E939F80023FEBC /* Curiosity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curiosity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B79715E939F80023FEBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -126,16 +129,18 @@
 		C92BBCA115EA4FAB00A20012 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */,
-				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
-				C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */,
-				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
-				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
-				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
-				C9E52D861708AD970099DB57 /* CAFFileURLClient.h */,
-				C9E52D871708AD970099DB57 /* CAFFileURLClient.m */,
 				C9E52D8F170BAE410099DB57 /* CAFFileFromURLViewController.h */,
+				C9E52D861708AD970099DB57 /* CAFFileURLClient.h */,
+				C947AECC15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.h */,
+				C92BBCA615EA540900A20012 /* CAFMatchedTextViewController.h */,
+				C9A5A3D81714F9CF006AE972 /* CAFMatchedTextViewModel.h */,
+				C92BBCA315EA4FDF00A20012 /* CAFRegexInputViewController.h */,
 				C9E52D90170BAE410099DB57 /* CAFFileFromURLViewController.m */,
+				C9E52D871708AD970099DB57 /* CAFFileURLClient.m */,
+				C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */,
+				C92BBCA715EA540900A20012 /* CAFMatchedTextViewController.m */,
+				C9A5A3D91714F9D0006AE972 /* CAFMatchedTextViewModel.m */,
+				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */,
 				C9E52D881708AD970099DB57 /* CAFFileURLClient.m in Sources */,
 				C9E52D91170BAE410099DB57 /* CAFFileFromURLViewController.m in Sources */,
+				C9A5A3DA1714F9D0006AE972 /* CAFMatchedTextViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
