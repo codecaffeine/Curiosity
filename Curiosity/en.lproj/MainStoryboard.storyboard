@@ -75,6 +75,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="matchURLsButton" destination="Xbf-th-GlG" id="pdu-hj-dxp"/>
                         <outlet property="matchedTextView" destination="c6o-yk-exf" id="Q51-6R-7KE"/>
                     </connections>
                 </viewController>
@@ -209,6 +210,7 @@
                 <relationship kind="action" name="cancelledImportingFile:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="doneImportingFile:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="matchURLsButtonPressed:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="matchURLsButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="matchedTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="regexTextBar" candidateClass="UIView"/>
                 <relationship kind="outlet" name="regexTextField" candidateClass="UITextField"/>
