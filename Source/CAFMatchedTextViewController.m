@@ -26,23 +26,23 @@
     
     self.viewModel = [CAFMatchedTextViewModel new];
 
-    RAC(self.matchedTextView.attributedText) = [RACAble(self.viewModel.text) map:^id(NSString *text) {
-        NSDictionary *attributes = @{NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Regular" size:14.0]};
-        NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:text
-                                                                               attributes:attributes];
-        return attributedString;
-    }];
-    
-    [self.viewModel.regexMatchesSignal subscribeNext:^(NSArray *matches) {
-        NSDictionary *attributes = @{
-            NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Semibold" size:14.0],
-            NSBackgroundColorAttributeName : [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.2]
-        };
-        NSMutableAttributedString *displayString = [self.matchedTextView.attributedText mutableCopy];
-        for (NSTextCheckingResult *result in matches) {
-            [displayString addAttributes:attributes range:result.range];
-        }
-        self.matchedTextView.attributedText = displayString;
+    RAC(self.matchedTextView.attributedText) = [RACSignal
+        combineLatest:@[RACAbleWithStart(self.viewModel.text), RACAbleWithStart(self.viewModel.regex)] reduce:^(NSString *text, NSRegularExpression *regex) {
+            NSMutableAttributedString *displayString = nil;
+            if (text) {
+                NSDictionary *baseAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Regular" size:14.0]};
+                displayString = [[NSMutableAttributedString alloc] initWithString:text attributes:baseAttributes];
+
+                NSDictionary *matchAttributes = @{
+                    NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Semibold" size:14.0],
+                    NSBackgroundColorAttributeName : [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.2]
+                };
+                NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, text.length)];
+                for (NSTextCheckingResult *result in matches) {
+                    [displayString addAttributes:matchAttributes range:result.range];
+                }
+            }
+            return displayString;
     }];
 };
 
