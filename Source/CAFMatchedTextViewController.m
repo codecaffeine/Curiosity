@@ -70,35 +70,6 @@
     NSError *regexError;
     self.viewModel.regex = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink
                                                            error:&regexError];
-//    self.viewModel.regex = [NSRegularExpression regularExpressionWithPattern:@"\\w" options:0 error:&regexError];
-    
-    
-//    if (self.inputText) {
-//        NSRange inputTextRange = NSMakeRange(0, [self.inputText length]);
-//        NSMutableAttributedString *displayString = [[NSMutableAttributedString alloc] initWithString:self.inputText];
-//        [displayString addAttribute:NSFontAttributeName
-//                              value:[UIFont fontWithName:@"SourceCodePro-Regular"
-//                                                    size:14.0]
-//                              range:inputTextRange];
-//        [regex enumerateMatchesInString:self.inputText
-//                                options:0
-//                                  range:inputTextRange
-//                             usingBlock:^(NSTextCheckingResult *result,
-//                                          NSMatchingFlags flags,
-//                                          BOOL *stop) {
-//                                 NSDictionary *attributes = @{
-//                                                              NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Semibold"
-//                                                                                                    size:14.0],
-//                                                              NSBackgroundColorAttributeName : [UIColor colorWithRed:0.0
-//                                                                                                               green:1.0
-//                                                                                                                blue:0.0
-//                                                                                                               alpha:0.2]
-//                                                              };
-//                                 [displayString addAttributes:attributes
-//                                                        range:result.range];
-//                             }];
-//        self.matchedTextView.attributedText = displayString;
-//    }
 }
 
 @end
