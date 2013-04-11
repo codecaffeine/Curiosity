@@ -12,5 +12,4 @@
 @interface CAFMatchedTextViewModel : NSObject
 @property (copy, nonatomic) NSMutableString *text;
 @property (copy, nonatomic) NSRegularExpression *regex;
-- (RACSignal *)regexMatchesSignal;
 @end

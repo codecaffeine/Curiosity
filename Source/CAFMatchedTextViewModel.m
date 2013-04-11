@@ -7,18 +7,7 @@
 //
 
 #import "CAFMatchedTextViewModel.h"
-#import <EXTScope.h>
 
 @implementation CAFMatchedTextViewModel
-
-- (RACSignal *)regexMatchesSignal {
-    return [RACSignal
-            combineLatest:@[RACAble(self.text), RACAble(self.regex)]
-            reduce:^id(NSString *string, NSRegularExpression *regex){
-                return [regex matchesInString:string
-                                      options:0
-                                        range:NSMakeRange(0, string.length)];
-            }];
-}
 
 @end
