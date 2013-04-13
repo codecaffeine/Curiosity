@@ -13,7 +13,7 @@
 - (RACSignal *)matches
 {
     return [RACSignal
-            combineLatest:@[RACAble(self.sourceText), RACAble(self.regex)]
+            combineLatest:@[RACAbleWithStart(self.sourceText), RACAbleWithStart(self.regex)]
             reduce:^(NSString *sourceText, NSRegularExpression *regex) {
                 return [regex matchesInString:sourceText
                                       options:0
