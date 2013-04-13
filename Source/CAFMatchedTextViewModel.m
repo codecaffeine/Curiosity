@@ -10,4 +10,9 @@
 
 @implementation CAFMatchedTextViewModel
 
+- (RACSignal *)matches
+{
+    return nil;
+}
+
 @end
