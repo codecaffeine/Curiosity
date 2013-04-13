@@ -18,6 +18,7 @@
 		C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5A1617BD600042CB1A /* SourceCodePro-Light.otf */; };
 		C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */; };
 		C9A5A3DA1714F9D0006AE972 /* CAFMatchedTextViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5A3D91714F9D0006AE972 /* CAFMatchedTextViewModel.m */; };
+		C9A5A3DD1719BDA5006AE972 /* CAFTestMatchedTextViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A5A3DC1719BDA5006AE972 /* CAFTestMatchedTextViewModel.m */; };
 		C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */; };
 		C9A8B79815E939F80023FEBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79715E939F80023FEBC /* UIKit.framework */; };
 		C9A8B79A15E939F80023FEBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9A8B79915E939F80023FEBC /* Foundation.framework */; };
@@ -69,6 +70,8 @@
 		C9817E5B1617BD600042CB1A /* SourceCodePro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Regular.otf"; sourceTree = "<group>"; };
 		C9A5A3D81714F9CF006AE972 /* CAFMatchedTextViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFMatchedTextViewModel.h; sourceTree = "<group>"; };
 		C9A5A3D91714F9D0006AE972 /* CAFMatchedTextViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFMatchedTextViewModel.m; sourceTree = "<group>"; };
+		C9A5A3DB1719BDA5006AE972 /* CAFTestMatchedTextViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFTestMatchedTextViewModel.h; sourceTree = "<group>"; };
+		C9A5A3DC1719BDA5006AE972 /* CAFTestMatchedTextViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFTestMatchedTextViewModel.m; sourceTree = "<group>"; };
 		C9A839A11617CFA0001C68C1 /* SourceCodePro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Semibold.otf"; sourceTree = "<group>"; };
 		C9A8B79315E939F80023FEBC /* Curiosity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Curiosity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9A8B79715E939F80023FEBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -214,11 +217,13 @@
 		C9A8B7C415E939F80023FEBC /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C9A8B7C515E939F80023FEBC /* Supporting Files */,
-				C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */,
-				C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */,
 				C9E52D8C1708AF960099DB57 /* CAFMockURLConnection.h */,
+				C9E52D891708AF100099DB57 /* CAFTestFileURLClient.h */,
+				C9A5A3DB1719BDA5006AE972 /* CAFTestMatchedTextViewModel.h */,
 				C9E52D8D1708AF960099DB57 /* CAFMockURLConnection.m */,
+				C9E52D8A1708AF100099DB57 /* CAFTestFileURLClient.m */,
+				C9A5A3DC1719BDA5006AE972 /* CAFTestMatchedTextViewModel.m */,
+				C9A8B7C515E939F80023FEBC /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 			files = (
 				C9E52D8B1708AF100099DB57 /* CAFTestFileURLClient.m in Sources */,
 				C9E52D8E1708AF960099DB57 /* CAFMockURLConnection.m in Sources */,
+				C9A5A3DD1719BDA5006AE972 /* CAFTestMatchedTextViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
