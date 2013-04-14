@@ -11,7 +11,6 @@
 
 @interface CAFMatchedTextViewModel : NSObject
 @property (copy, nonatomic) NSString *sourceText;
-@property (copy, nonatomic) NSMutableString *text;
 @property (copy, nonatomic) NSRegularExpression *regex;
 
 /**
