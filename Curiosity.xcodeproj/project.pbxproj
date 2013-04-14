@@ -13,7 +13,6 @@
 		C9452A3E16094F2600D8FF98 /* AppIcon72.png in Resources */ = {isa = PBXBuildFile; fileRef = C9452A3C16094F2600D8FF98 /* AppIcon72.png */; };
 		C947AECE15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m in Sources */ = {isa = PBXBuildFile; fileRef = C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */; };
 		C95DE1AF171B046D00C6EB01 /* CAFCanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C95DE1AD171B046D00C6EB01 /* CAFCanvasViewController.m */; };
-		C95DE1B0171B046D00C6EB01 /* CAFCanvasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C95DE1AE171B046D00C6EB01 /* CAFCanvasViewController.xib */; };
 		C9817E5C1617BD600042CB1A /* SourceCodePro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E571617BD600042CB1A /* SourceCodePro-Black.otf */; };
 		C9817E5D1617BD600042CB1A /* SourceCodePro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E581617BD600042CB1A /* SourceCodePro-Bold.otf */; };
 		C9817E5E1617BD600042CB1A /* SourceCodePro-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C9817E591617BD600042CB1A /* SourceCodePro-ExtraLight.otf */; };
@@ -67,7 +66,6 @@
 		C947AECD15FCD6E900FE36C2 /* CAFInputAccessoryPlaceholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFInputAccessoryPlaceholder.m; sourceTree = "<group>"; };
 		C95DE1AC171B046D00C6EB01 /* CAFCanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAFCanvasViewController.h; sourceTree = "<group>"; };
 		C95DE1AD171B046D00C6EB01 /* CAFCanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAFCanvasViewController.m; sourceTree = "<group>"; };
-		C95DE1AE171B046D00C6EB01 /* CAFCanvasViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAFCanvasViewController.xib; sourceTree = "<group>"; };
 		C9817E571617BD600042CB1A /* SourceCodePro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Black.otf"; sourceTree = "<group>"; };
 		C9817E581617BD600042CB1A /* SourceCodePro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-Bold.otf"; sourceTree = "<group>"; };
 		C9817E591617BD600042CB1A /* SourceCodePro-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodePro-ExtraLight.otf"; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				C92BBCA415EA4FDF00A20012 /* CAFRegexInputViewController.m */,
 				C95DE1AC171B046D00C6EB01 /* CAFCanvasViewController.h */,
 				C95DE1AD171B046D00C6EB01 /* CAFCanvasViewController.m */,
-				C95DE1AE171B046D00C6EB01 /* CAFCanvasViewController.xib */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				C9817E5F1617BD600042CB1A /* SourceCodePro-Light.otf in Resources */,
 				C9817E601617BD600042CB1A /* SourceCodePro-Regular.otf in Resources */,
 				C9A839A21617CFA0001C68C1 /* SourceCodePro-Semibold.otf in Resources */,
-				C95DE1B0171B046D00C6EB01 /* CAFCanvasViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
