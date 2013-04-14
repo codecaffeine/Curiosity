@@ -25,8 +25,8 @@
     [super viewDidLoad];
     
     self.viewModel = [CAFMatchedTextViewModel new];
-    RAC(self.matchedTextView.hidden) = [RACAbleWithStart(self.viewModel.sourceText) map:^id(NSString *sourceText) {
-        return @(sourceText == nil);
+    RAC(self.matchedTextView.alpha) = [RACAbleWithStart(self.viewModel.sourceText) map:^id(NSString *sourceText) {
+        return @(sourceText == nil ? 0.0f : 1.0f);
     }];
     RAC(self.matchedTextView.text) = [RACAbleWithStart(self.viewModel.sourceText) map:^id(NSString *sourceText) {
         return sourceText;

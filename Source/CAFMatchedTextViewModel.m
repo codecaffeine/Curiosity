@@ -12,13 +12,14 @@
 
 - (RACSignal *)matches
 {
-    return [RACSignal
-            combineLatest:@[RACAbleWithStart(self.sourceText), RACAbleWithStart(self.regex)]
-            reduce:^(NSString *sourceText, NSRegularExpression *regex) {
+    return [[RACSignal
+             combineLatest:@[RACAbleWithStart(self.sourceText), RACAbleWithStart(self.regex)]
+             reduce:^(NSString *sourceText, NSRegularExpression *regex) {
                 return [regex matchesInString:sourceText
                                       options:0
                                         range:NSMakeRange(0, sourceText.length)];
-            }];
+             }]
+            deliverOn:[RACScheduler scheduler]];
 }
 
 @end

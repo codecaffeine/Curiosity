@@ -7,8 +7,9 @@
 //
 
 #import "CAFCanvasViewController.h"
-#import "CAFMatchedTextViewModel.m"
+#import "CAFMatchedTextViewModel.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <EXTScope.h>
 
 @interface CAFCanvasViewController ()
 @property (strong, nonatomic) CAFMatchedTextViewModel *viewModel;
@@ -20,19 +21,24 @@
 @implementation CAFCanvasViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
     self.viewModel = [CAFMatchedTextViewModel new];
-    RAC(self.addSourceButton.hidden) = [RACAbleWithStart(self.viewModel.sourceText)
-                                        map:^id(NSString *sourceText) {
-                                            return @(sourceText != nil);
-                                        }];
-    RAC(self.textView.hidden) = [RACAbleWithStart(self.viewModel.sourceText)
-                                        map:^id(NSString *sourceText) {
-                                            return @(sourceText == nil);
-                                        }];
+    @weakify(self);
+    [RACAbleWithStart(self.viewModel.sourceText) subscribeNext:^(NSString *sourceText) {
+        @strongify(self);
+        self.textView.text = sourceText;
+        
+        @weakify(self);
+        [UIView animateWithDuration:0.3 animations:^{
+            @strongify(self);
+            self.addSourceButton.alpha = (sourceText == nil) ? 1.0f : 0.0f;
+            self.textView.alpha = (sourceText == nil) ? 0.0f : 1.0f;
+        }];
+    }];
     
-    [[self.addSourceButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        NSLog(@"x: %@", NSStringFromClass([x class]));
+    [[self.addSourceButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *button) {
+        self.viewModel.sourceText = @"A Man A Plan A Canal Panama";
     }];
 }
 
