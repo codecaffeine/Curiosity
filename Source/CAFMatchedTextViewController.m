@@ -25,24 +25,11 @@
     [super viewDidLoad];
     
     self.viewModel = [CAFMatchedTextViewModel new];
-
-    RAC(self.matchedTextView.attributedText) = [RACSignal
-        combineLatest:@[RACAbleWithStart(self.viewModel.text), RACAbleWithStart(self.viewModel.regex)] reduce:^(NSString *text, NSRegularExpression *regex) {
-            NSMutableAttributedString *displayString = nil;
-            if (text) {
-                NSDictionary *baseAttributes = @{NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Regular" size:14.0]};
-                displayString = [[NSMutableAttributedString alloc] initWithString:text attributes:baseAttributes];
-
-                NSDictionary *matchAttributes = @{
-                    NSFontAttributeName : [UIFont fontWithName:@"SourceCodePro-Semibold" size:14.0],
-                    NSBackgroundColorAttributeName : [UIColor colorWithRed:0.0 green:1.0 blue:0.0 alpha:0.2]
-                };
-                NSArray *matches = [regex matchesInString:text options:0 range:NSMakeRange(0, text.length)];
-                for (NSTextCheckingResult *result in matches) {
-                    [displayString addAttributes:matchAttributes range:result.range];
-                }
-            }
-            return displayString;
+    RAC(self.matchedTextView.hidden) = [RACAbleWithStart(self.viewModel.sourceText) map:^id(NSString *sourceText) {
+        return @(sourceText == nil);
+    }];
+    RAC(self.matchedTextView.text) = [RACAbleWithStart(self.viewModel.sourceText) map:^id(NSString *sourceText) {
+        return sourceText;
     }];
 };
 
@@ -59,7 +46,7 @@
     if ([segue.sourceViewController isKindOfClass:[CAFFileFromURLViewController class]]) {
         CAFFileFromURLViewController *fileURLViewController = (CAFFileFromURLViewController *)segue.sourceViewController;
         self.title = fileURLViewController.filename;
-        self.viewModel.text = [fileURLViewController.fileContents mutableCopy];
+        self.viewModel.sourceText = fileURLViewController.fileContents;
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
