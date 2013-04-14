@@ -11,8 +11,6 @@
 @protocol CAFMatchedTextViewControllerDelegate;
 
 @interface CAFMatchedTextViewController : UIViewController
-@property (copy, nonatomic) NSString *regexString;
-@property (copy, nonatomic) NSString *inputText;
 @property (weak, nonatomic) id<CAFMatchedTextViewControllerDelegate> delegate;
 - (IBAction)cancelledImportingFile:(UIStoryboardSegue *)segue;
 - (IBAction)doneImportingFile:(UIStoryboardSegue *)segue;
