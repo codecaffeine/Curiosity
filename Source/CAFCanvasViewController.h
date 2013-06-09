@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "CAFMatchedTextViewModel.h"
 
 @interface CAFCanvasViewController : UIViewController
-
+@property (readonly, strong, nonatomic) CAFMatchedTextViewModel *viewModel;
+@property (strong, nonatomic) IBOutlet UIButton *addSourceButton;
 @end

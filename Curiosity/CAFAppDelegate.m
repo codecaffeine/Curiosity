@@ -7,19 +7,26 @@
 //
 
 #import "CAFAppDelegate.h"
-#import "CAFMatchedTextViewController.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import "CAFCanvasViewController.h"
 
-@implementation CAFAppDelegate {
-    CAFMatchedTextViewController *_matchedTextViewController;
-}
 
+@interface CAFAppDelegate ()
+@property (strong, nonatomic) CAFCanvasViewController *canvasViewController;
+@end
+
+
+@implementation CAFAppDelegate
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+
 - (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    if ([self.window.rootViewController isKindOfClass:[CAFCanvasViewController class]]) {
+        self.canvasViewController = (CAFCanvasViewController *)self.window.rootViewController;
+    }
     return YES;
 }
 							
@@ -57,6 +64,10 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
     // Restart any tasks that were paused (or not yet started) while the
     // application was inactive. If the application was previously in the
     // background, optionally refresh the user interface.
+    
+    [[self.canvasViewController.addSourceButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        NSLog(@"ex: %@", x);
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

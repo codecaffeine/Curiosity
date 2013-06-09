@@ -7,18 +7,16 @@
 //
 
 #import "CAFCanvasViewController.h"
-#import "CAFMatchedTextViewModel.h"
-#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <EXTScope.h>
 
 @interface CAFCanvasViewController ()
 @property (strong, nonatomic) CAFMatchedTextViewModel *viewModel;
-@property (strong, nonatomic) IBOutlet UIButton *addSourceButton;
 @property (strong, nonatomic) IBOutlet UITextView *textView;
 @end
 
 
 @implementation CAFCanvasViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -38,13 +36,8 @@
     }];
     
     [[self.addSourceButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *button) {
-        self.viewModel.sourceText = @"A Man A Plan A Canal Panama";
+        NSLog(@"button: %@", button);
     }];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
