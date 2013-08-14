@@ -9,9 +9,9 @@ PODS:
   - libextobjc/EXTScope (0.2.5):
     - libextobjc/RuntimeExtensions
   - libextobjc/RuntimeExtensions (0.2.5)
-  - Mantle (1.1):
-    - libextobjc/EXTKeyPathCoding
-    - libextobjc/EXTScope
+  - Mantle (1.2):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.2)
   - OctoKit (0.1.1):
     - AFNetworking
     - ISO8601DateFormatter
@@ -39,8 +39,8 @@ SPEC CHECKSUMS:
   ISO8601DateFormatter: 077ce9d8cfba171bc1ced6cba0d2ae4aefab7619
   JRSwizzle: 6242ff38485d870fc2636899048ee1ab883ae587
   libextobjc: 2cbc74caf8bdc74a86fdf24673f773c83424ea98
-  Mantle: aba2facc6ee8f97512a94768dc57c82b7802948c
+  Mantle: f5b5cba1b112273fe3bb4433cdcf1da76203c2b4
   OctoKit: e818aefac59fc6b9c633f7abaa846688746ebfe2
   ReactiveCocoa: 396e260e68f7a6ba3855b4486009381e0dc02cc3
 
-COCOAPODS: 0.19.1
+COCOAPODS: 0.23.0
