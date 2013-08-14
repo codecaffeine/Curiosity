@@ -23,7 +23,8 @@
 
 
 - (BOOL)application:(UIApplication *)application
-didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
     if ([self.window.rootViewController isKindOfClass:[CAFCanvasViewController class]]) {
         self.canvasViewController = (CAFCanvasViewController *)self.window.rootViewController;
     }
